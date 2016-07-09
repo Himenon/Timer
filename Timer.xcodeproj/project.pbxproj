@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650D526D1D30B08700C74751 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650D526C1D30B08700C74751 /* AVFoundation.framework */; };
 		654753391D3073FA00F29389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654753381D3073FA00F29389 /* AppDelegate.swift */; };
 		6547533B1D3073FA00F29389 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6547533A1D3073FA00F29389 /* TimerController.swift */; };
 		6547533D1D3073FA00F29389 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6547533C1D3073FA00F29389 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		650D526C1D30B08700C74751 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652BDEF31D307D5D00344302 /* TimerActionCheck.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimerActionCheck.playground; sourceTree = "<group>"; };
 		654753351D3073FA00F29389 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654753381D3073FA00F29389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650D526D1D30B08700C74751 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +42,7 @@
 		6547532C1D3073FA00F29389 = {
 			isa = PBXGroup;
 			children = (
+				650D526C1D30B08700C74751 /* AVFoundation.framework */,
 				654753371D3073FA00F29389 /* Timer */,
 				654753361D3073FA00F29389 /* Products */,
 			);

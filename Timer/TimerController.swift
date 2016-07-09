@@ -7,8 +7,10 @@
 //
 
 import Cocoa
+import AVFoundation
 
-class TimerController: NSViewController {
+
+class TimerController: NSViewController, AVAudioPlayerDelegate {
     
     var mainTimer: NSTimer!
     var timerCounter: NSTimeInterval = 0
@@ -23,13 +25,31 @@ class TimerController: NSViewController {
     // ミッションビュー
     @IBOutlet var missionLabel: NSTextField!
     
-    
     // 実行ボタン
     @IBOutlet var TimerStartButton: NSButton!
     @IBOutlet var TimerStopButton: NSButton!
     @IBOutlet var TimerClearButton: NSButton!
+    @IBOutlet var ChooseMusicButton: NSButton!
+    
+    // タイムアップ時に流すミュージック
+    var timerUpMusicURL: NSURL!
+    var timeUpMusic: AVAudioPlayer! = nil
+    
+    @IBOutlet var timeUpMusicLabel: NSTextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        TimerStopButton.enabled = false
+        TimerClearButton.enabled = false
+        TimerLabel.font = NSFont(name: "Helvetica", size: 64)
+        
+        initTimerSetting.setup()
+        updateTimerSetting.setup()
+    }
     
     @IBAction func TimerStart(sender: AnyObject) {
+        
+        missionLabel.stringValue = missionLabel.stringValue
         
         if initTimerSetting.valueCheck()  == false {
             TimerLabel.stringValue = "値を設定して下さい。"
@@ -43,6 +63,7 @@ class TimerController: NSViewController {
         TimerStopButton.enabled = true
         TimerClearButton.enabled = true
         missionLabel.enabled = false
+        ChooseMusicButton.enabled = false
         
         timerCounter = NSTimeInterval( initTimerSetting.getTotalSecond() )
         initTimerSetting.setEnable(false)
@@ -53,14 +74,31 @@ class TimerController: NSViewController {
     }
     
     @IBAction func TimerStop(sender: AnyObject) {
+        missionLabel.stringValue = missionLabel.stringValue
+        
         TimerStartButton.enabled = true
         TimerStopButton.enabled = false
+        ChooseMusicButton.enabled = true
+        
+        if (timeUpMusic != nil && timeUpMusic.playing) {
+            timeUpMusic.stop()
+        }
         
         mainTimer.invalidate()
     }
     
     
     @IBAction func TimerClear(sender: AnyObject) {
+        if (timeUpMusic != nil && timeUpMusic.playing) {
+            timeUpMusic.stop()
+        }
+        
+        TimerStartButton.enabled = true
+        TimerStopButton.enabled = false
+        TimerClearButton.enabled = false
+        ChooseMusicButton.enabled = true
+        
+        missionLabel.stringValue = missionLabel.stringValue
         
         TimerClearButton.enabled = false
         missionLabel.enabled = true
@@ -84,16 +122,6 @@ class TimerController: NSViewController {
         TimerLabel.stringValue = generateTimerCountLabel(Int(timerCounter))
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        TimerStopButton.enabled = false
-        TimerClearButton.enabled = false
-        TimerLabel.font = NSFont(name: "Helvetica", size: 64)
-        
-        initTimerSetting.setup()
-        updateTimerSetting.setup()
-    }
-    
     func update() {
         timerCounter -= timerInterval
         
@@ -102,6 +130,13 @@ class TimerController: NSViewController {
             //　タイマーの終了
             mainTimer.invalidate()
             initTimerSetting.setEnable(true)
+            
+            TimerStartButton.enabled = false
+            TimerStopButton.enabled = false
+            TimerClearButton.enabled = true
+            ChooseMusicButton.enabled = true
+            
+            playTimeUpMusic()
         } else {
             TimerLabel.stringValue = generateTimerCountLabel(Int(timerCounter))
         }
@@ -121,8 +156,58 @@ class TimerController: NSViewController {
         }
     }
     
-    func buttnoStateToggle(state: Bool) {
+    // NSTextFieldの入力イベントの取得
+    
+    // 音楽
+    func playTimeUpMusic() {
+        if timerUpMusicURL != nil {
+            timeUpMusic = try! AVAudioPlayer(contentsOfURL: timerUpMusicURL)
+            timeUpMusic.play()
+        }
+    }
+    
+    @IBAction func chooseMusic(sender: AnyObject) {
         
+        // ----
+        print(#function)
+        let openDir = NSOpenPanel()
+        openDir.canChooseFiles = true
+        openDir.canChooseDirectories = false
+        openDir.allowsMultipleSelection = false
+        
+        if (openDir.runModal() == NSModalResponseOK) {
+            
+            if !hasMusicExt(openDir.URL!) {
+                timeUpMusicLabel.stringValue = "有効なファイル形式ではありません。"
+                return
+            }
+            
+            timerUpMusicURL = openDir.URL
+            timeUpMusicLabel.stringValue = getFileTitle(timerUpMusicURL)
+            
+            timeUpMusic = try! AVAudioPlayer(contentsOfURL: timerUpMusicURL)
+            timeUpMusic.prepareToPlay()
+            
+        }
+    }
+    
+    func getFileTitle(URL: NSURL) -> String {
+        let strURL = URL.absoluteString.componentsSeparatedByString("/").last!
+        return strURL.stringByRemovingPercentEncoding!
+    }
+    
+    func hasMusicExt(URL: NSURL) -> Bool {
+        let ext_array: [String] = ["mp3", "mp4", "caf"]
+        let ext: String = getFileTitle(URL).componentsSeparatedByString(".").last!
+        
+        for cext in ext_array {
+            print("拡張子:\(ext), 調査する拡張子: \(cext)")
+            if ext.containsString(cext) {
+                return true
+            }
+        }
+        
+        return false
     }
     
 }
