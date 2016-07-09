@@ -10,6 +10,24 @@ import Cocoa
 
 class TimerController: NSViewController {
 
+ 
+    @IBOutlet weak var TimerLabel: NSTextField!
+    @IBOutlet weak var TimerSetField: NSTextField!
+    
+ 
+    @IBAction func TimerStart(sender: AnyObject) {
+        print(#function)
+    }
+    
+    @IBAction func TimerStop(sender: AnyObject) {
+        print(#function)
+    }
+    
+    
+    @IBAction func TimerClear(sender: AnyObject) {
+        print(#function)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

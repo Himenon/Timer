@@ -688,13 +688,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="28"/>
                                 </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWN-op-0Vx">
-                                <rect key="frame" x="187" y="20" width="120" height="64"/>
-                                <buttonCell key="cell" type="bevel" title="STOP" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="pdA-nd-ByV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="28"/>
-                                </buttonCell>
+                                <connections>
+                                    <action selector="TimerStart:" target="XfG-lQ-9wD" id="gsS-hR-vcg"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-Za-LX8">
                                 <rect key="frame" x="340" y="20" width="120" height="64"/>
@@ -702,6 +698,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="28"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="TimerClear:" target="XfG-lQ-9wD" id="x74-nS-WQL"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZ0-HY-3Pg">
                                 <rect key="frame" x="155" y="108" width="185" height="27"/>
@@ -719,8 +718,22 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWN-op-0Vx">
+                                <rect key="frame" x="187" y="20" width="120" height="64"/>
+                                <buttonCell key="cell" type="bevel" title="STOP" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="pdA-nd-ByV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="28"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="TimerStop:" target="XfG-lQ-9wD" id="h3g-Gs-gzc"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="TimerLabel" destination="YZs-Ax-GIm" id="EOY-NY-Hsa"/>
+                        <outlet property="TimerSetField" destination="cZ0-HY-3Pg" id="wNW-eg-J8Q"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
