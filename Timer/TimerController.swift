@@ -39,12 +39,12 @@ class TimerController: NSViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TimerStopButton.enabled = false
-        TimerClearButton.enabled = false
-        TimerLabel.font = NSFont(name: "Helvetica", size: 64)
-        
-        initTimerSetting.setup()
-        updateTimerSetting.setup()
+//        TimerStopButton.enabled = false
+//        TimerClearButton.enabled = false
+//        TimerLabel.font = NSFont(name: "Helvetica", size: 64)
+//        
+//        initTimerSetting.setup()
+//        updateTimerSetting.setup()
     }
     
     @IBAction func TimerStart(sender: AnyObject) {

@@ -23,3 +23,4 @@ myURL.componentsSeparatedByString("/").last
 let pURL: String = "%E3%81%A6%E3%81%A3%E3%81%A6%E3%81%A3%E3%81%A6%E3%83%BC%E5%8E%9F%E6%9B%B2%E3%80%80ver.mp3"
 
 pURL.stringByRemovingPercentEncoding
+
