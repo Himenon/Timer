@@ -116,7 +116,7 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" image="Artboard 1@512-1" id="gWb-Hv-e3k"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="App-EQ-a6q">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="App-EQ-a6q">
                                 <rect key="frame" x="635" y="346" width="53" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="vTZ-R8-iqc"/>
@@ -415,11 +415,11 @@
                                 <tabViewItems>
                                     <tabViewItem label="シンプルタイマー" identifier="2" id="AGH-Sp-udk">
                                         <view key="view" id="AGg-Wp-Wba">
-                                            <rect key="frame" x="10" y="33" width="573" height="598"/>
+                                            <rect key="frame" x="10" y="33" width="572" height="593"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34q-v4-LDF">
-                                                    <rect key="frame" x="17" y="575" width="244" height="20"/>
+                                                    <rect key="frame" x="17" y="570" width="244" height="20"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="シンプルなタイマー" id="QY1-9t-CmR">
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -427,14 +427,14 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gi7-PR-pnp">
-                                                    <rect key="frame" x="16" y="286" width="143" height="18"/>
+                                                    <rect key="frame" x="16" y="281" width="143" height="18"/>
                                                     <buttonCell key="cell" type="radio" title="制限時間から指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2sO-3i-452">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="yuo-kW-WrF">
-                                                    <rect key="frame" x="30" y="196" width="541" height="78"/>
+                                                    <rect key="frame" x="30" y="191" width="541" height="78"/>
                                                     <view key="contentView" id="ivg-I9-7lA">
                                                         <rect key="frame" x="1" y="1" width="539" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,7 +463,7 @@
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
                                                 <box fixedFrame="YES" title="カウンター表示のフォーマット" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-cl-s56">
-                                                    <rect key="frame" x="30" y="313" width="542" height="139"/>
+                                                    <rect key="frame" x="30" y="308" width="542" height="139"/>
                                                     <view key="contentView" id="Nx2-eE-qXm">
                                                         <rect key="frame" x="1" y="1" width="540" height="126"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,7 +513,7 @@
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
                                                 <box fixedFrame="YES" title="現在のミッション" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rDu-0Z-MLb">
-                                                    <rect key="frame" x="30" y="468" width="542" height="100"/>
+                                                    <rect key="frame" x="30" y="463" width="542" height="100"/>
                                                     <view key="contentView" id="B69-YV-GVh">
                                                         <rect key="frame" x="1" y="1" width="540" height="87"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,7 +533,7 @@
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
                                                 <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="tYb-Rc-G10">
-                                                    <rect key="frame" x="28" y="87" width="541" height="78"/>
+                                                    <rect key="frame" x="28" y="82" width="541" height="78"/>
                                                     <view key="contentView" id="PRN-o4-MsH">
                                                         <rect key="frame" x="1" y="1" width="539" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -562,42 +562,42 @@
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="isY-lU-Wa5">
-                                                    <rect key="frame" x="16" y="172" width="191" height="18"/>
+                                                    <rect key="frame" x="16" y="167" width="191" height="18"/>
                                                     <buttonCell key="cell" type="radio" title="終了時刻から逆算して指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kH6-xx-6LC">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDw-hu-jhD">
-                                                    <rect key="frame" x="265" y="10" width="120" height="32"/>
+                                                    <rect key="frame" x="265" y="5" width="120" height="32"/>
                                                     <buttonCell key="cell" type="push" title="リセット" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SW2-nT-Ma9">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-kZ-JOK">
-                                                    <rect key="frame" x="145" y="10" width="120" height="32"/>
+                                                    <rect key="frame" x="145" y="5" width="120" height="32"/>
                                                     <buttonCell key="cell" type="push" title="一時停止" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4zI-NX-3Wz">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2Z-K3-oOB">
-                                                    <rect key="frame" x="25" y="10" width="120" height="32"/>
+                                                    <rect key="frame" x="25" y="5" width="120" height="32"/>
                                                     <buttonCell key="cell" type="push" title="開始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vox-Dl-xSb">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JqF-Ee-T4C">
-                                                    <rect key="frame" x="25" y="43" width="120" height="32"/>
+                                                    <rect key="frame" x="25" y="38" width="120" height="32"/>
                                                     <buttonCell key="cell" type="push" title="表示の更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ceY-ZS-P3C">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vci-G5-5Ba">
-                                                    <rect key="frame" x="385" y="10" width="120" height="32"/>
+                                                    <rect key="frame" x="385" y="5" width="120" height="32"/>
                                                     <buttonCell key="cell" type="push" title="強制終了" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qeL-NN-nXj">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -730,7 +730,7 @@
                                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d4-rf-qDR">
                                                     <rect key="frame" x="17" y="169" width="541" height="138"/>
                                                     <clipView key="contentView" ambiguous="YES" id="hPi-tn-8lf">
-                                                        <rect key="frame" x="1" y="23" width="539" height="114"/>
+                                                        <rect key="frame" x="1" y="0.0" width="539" height="137"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="R2q-Hr-61T" viewBased="YES" id="0VS-vZ-GCv">
@@ -917,7 +917,7 @@
                                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sP5-5F-iJA">
                                                     <rect key="frame" x="17" y="364" width="541" height="195"/>
                                                     <clipView key="contentView" ambiguous="YES" id="nUd-As-ysT">
-                                                        <rect key="frame" x="1" y="23" width="539" height="171"/>
+                                                        <rect key="frame" x="1" y="0.0" width="539" height="194"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="rO2-tM-7B8" viewBased="YES" id="E9v-Re-G4r">
@@ -1000,7 +1000,7 @@
                                                         <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="agW-PH-7Hn">
+                                                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="agW-PH-7Hn">
                                                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -1066,7 +1066,7 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-A3-JOg">
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="575"/>
                                 <clipView key="contentView" id="WEk-iZ-FcL">
-                                    <rect key="frame" x="1" y="23" width="860" height="551"/>
+                                    <rect key="frame" x="1" y="0.0" width="860" height="574"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="8cd-W8-6qd" viewBased="YES" id="khA-jt-9Jr">
@@ -1320,7 +1320,7 @@
                                     <rect key="frame" x="1" y="559" width="860" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="5.5476121262148594e-13" horizontal="NO" id="Lo8-YE-lUL">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Lo8-YE-lUL">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

@@ -10,6 +10,10 @@
 		2E734399AA9F59361ECCF9BF /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C78825772A277839E0839A /* Pods_Timer.framework */; };
 		6504A55A1D3A8C5E001F6FAF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6504A5591D3A8C5E001F6FAF /* AppModel.swift */; };
 		650D526D1D30B08700C74751 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650D526C1D30B08700C74751 /* AVFoundation.framework */; };
+		65370C7D1D3B693900BEC123 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65370C7C1D3B693900BEC123 /* TimerWindowController.swift */; };
+		65370C7F1D3B696F00BEC123 /* MainControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65370C7E1D3B696F00BEC123 /* MainControlPanel.swift */; };
+		65370C811D3B69CD00BEC123 /* SoundDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65370C801D3B69CD00BEC123 /* SoundDataManager.swift */; };
+		65370C831D3B69D800BEC123 /* MissionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65370C821D3B69D800BEC123 /* MissionDataManager.swift */; };
 		653B02741D3A1D09006C08E5 /* Artboard 1@512-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 653B02731D3A1D09006C08E5 /* Artboard 1@512-1.png */; };
 		654753391D3073FA00F29389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654753381D3073FA00F29389 /* AppDelegate.swift */; };
 		6547533B1D3073FA00F29389 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6547533A1D3073FA00F29389 /* TimerController.swift */; };
@@ -23,6 +27,10 @@
 		6504A5591D3A8C5E001F6FAF /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		650D526C1D30B08700C74751 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652BDEF31D307D5D00344302 /* TimerActionCheck.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimerActionCheck.playground; sourceTree = "<group>"; };
+		65370C7C1D3B693900BEC123 /* TimerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowController.swift; sourceTree = "<group>"; };
+		65370C7E1D3B696F00BEC123 /* MainControlPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControlPanel.swift; sourceTree = "<group>"; };
+		65370C801D3B69CD00BEC123 /* SoundDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundDataManager.swift; sourceTree = "<group>"; };
+		65370C821D3B69D800BEC123 /* MissionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDataManager.swift; sourceTree = "<group>"; };
 		653B02731D3A1D09006C08E5 /* Artboard 1@512-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Artboard 1@512-1.png"; path = "Assets.xcassets/AppIcon.appiconset/Artboard 1@512-1.png"; sourceTree = "<group>"; };
 		654753351D3073FA00F29389 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654753381D3073FA00F29389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +111,10 @@
 				6547533C1D3073FA00F29389 /* Assets.xcassets */,
 				6547533E1D3073FA00F29389 /* Main.storyboard */,
 				654753411D3073FA00F29389 /* Info.plist */,
+				65370C7C1D3B693900BEC123 /* TimerWindowController.swift */,
+				65370C7E1D3B696F00BEC123 /* MainControlPanel.swift */,
+				65370C801D3B69CD00BEC123 /* SoundDataManager.swift */,
+				65370C821D3B69D800BEC123 /* MissionDataManager.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -246,10 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65370C7D1D3B693900BEC123 /* TimerWindowController.swift in Sources */,
 				6547533B1D3073FA00F29389 /* TimerController.swift in Sources */,
+				65370C831D3B69D800BEC123 /* MissionDataManager.swift in Sources */,
+				65370C811D3B69CD00BEC123 /* SoundDataManager.swift in Sources */,
 				654753391D3073FA00F29389 /* AppDelegate.swift in Sources */,
 				6565982D1D308B520045ED36 /* SetTimerView.swift in Sources */,
 				6504A55A1D3A8C5E001F6FAF /* AppModel.swift in Sources */,
+				65370C7F1D3B696F00BEC123 /* MainControlPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
