@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E734399AA9F59361ECCF9BF /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C78825772A277839E0839A /* Pods_Timer.framework */; };
+		6503F3341D3C907500001ABE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6503F3331D3C907500001ABE /* README.md */; };
 		6504A55A1D3A8C5E001F6FAF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6504A5591D3A8C5E001F6FAF /* AppModel.swift */; };
 		650D526D1D30B08700C74751 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650D526C1D30B08700C74751 /* AVFoundation.framework */; };
 		65370C7D1D3B693900BEC123 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65370C7C1D3B693900BEC123 /* TimerWindowController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		43690F14B0BC36E161CCB966 /* Pods-Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timer/Pods-Timer.release.xcconfig"; sourceTree = "<group>"; };
+		6503F3331D3C907500001ABE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6504A5591D3A8C5E001F6FAF /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		650D526C1D30B08700C74751 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652BDEF31D307D5D00344302 /* TimerActionCheck.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimerActionCheck.playground; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				654753411D3073FA00F29389 /* Info.plist */,
 				65370C7C1D3B693900BEC123 /* TimerWindowController.swift */,
 				65370C7E1D3B696F00BEC123 /* MainControlPanel.swift */,
+				6503F3331D3C907500001ABE /* README.md */,
 				65370C801D3B69CD00BEC123 /* SoundDataManager.swift */,
 				65370C821D3B69D800BEC123 /* MissionDataManager.swift */,
 			);
@@ -264,6 +267,7 @@
 				65370C811D3B69CD00BEC123 /* SoundDataManager.swift in Sources */,
 				654753391D3073FA00F29389 /* AppDelegate.swift in Sources */,
 				6565982D1D308B520045ED36 /* SetTimerView.swift in Sources */,
+				6503F3341D3C907500001ABE /* README.md in Sources */,
 				6504A55A1D3A8C5E001F6FAF /* AppModel.swift in Sources */,
 				65370C7F1D3B696F00BEC123 /* MainControlPanel.swift in Sources */,
 			);

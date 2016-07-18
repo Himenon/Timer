@@ -6,4 +6,5 @@
 //  Copyright © 2016年 Kosei Himeno. All rights reserved.
 //
 
+import Cocoa
 import Foundation
