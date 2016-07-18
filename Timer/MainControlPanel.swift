@@ -12,12 +12,32 @@ import Foundation
 
 class MainControlPanel: NSViewController {
     @IBOutlet var timeTable: NSTableView!
+    @IBOutlet var timerWindow: NSWindow!
+
+    var timerVC: NSWindowController?
+    var timerViewManaer = TimerViewManager.sharedManager
     
     override func viewDidLoad() {
         // テーブルのデリゲートとデータソースの設定
         // TODO: クラスの分離
         timeTable.setDataSource(self)
         timeTable.setDelegate(self)
+    }
+    
+    @IBAction func secondWindowFullScreen(sender: AnyObject) {
+        // http://stackoverflow.com/questions/24694587/osx-storyboards-open-non-modal-window-with-standard-segue
+        if (timerVC == nil) {
+            timerViewManaer.fullScreenFlag = true
+            let storyboard = NSStoryboard(name: "Main", bundle: nil)
+            timerVC = storyboard.instantiateControllerWithIdentifier("TimerWindow") as? NSWindowController
+        }
+        if (timerVC != nil) {
+            timerVC?.showWindow(sender)
+        }
+    }
+    
+    @IBAction func exitButton(sender: AnyObject) {
+        exit(0)
     }
 }
 

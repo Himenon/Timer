@@ -49,9 +49,10 @@
         <!--Window Controller-->
         <scene sceneID="NiN-9a-aEp">
             <objects>
-                <windowController id="NV9-ET-LNF" sceneMemberID="viewController">
-                    <window key="window" title="タイマービュー" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sW1-b2-cmL">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="TimerWindow" id="NV9-ET-LNF" sceneMemberID="viewController">
+                    <window key="window" title="タイマービュー" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="sW1-b2-cmL">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="-1626" y="312" width="480" height="271"/>
                         <rect key="screenRect" x="-1920" y="0.0" width="1920" height="1057"/>
@@ -70,7 +71,7 @@
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Timer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="400" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -287,6 +288,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="secondWindowFullScreen:" target="Aw1-f9-27u" id="Qe4-Sc-wUJ"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xn-tF-7z0">
                                 <rect key="frame" x="619" y="763" width="147" height="17"/>
@@ -311,7 +315,7 @@
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="NV9-ET-LNF" kind="show" id="10o-va-lfY"/>
+                                    <segue destination="NV9-ET-LNF" kind="show" id="eM6-Lo-gs1"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IsW-C1-RHo">
@@ -625,7 +629,7 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="シンプルタイマー" identifier="2" id="bSX-wG-7yX">
-                                        <view key="view" ambiguous="YES" id="rxv-Kw-FNs">
+                                        <view key="view" id="rxv-Kw-FNs">
                                             <rect key="frame" x="10" y="33" width="260" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -920,7 +924,7 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="終了時の音楽の設定" identifier="2" id="UWd-UF-Fsr">
-                                        <view key="view" id="CDZ-Ro-8fh">
+                                        <view key="view" ambiguous="YES" id="CDZ-Ro-8fh">
                                             <rect key="frame" x="10" y="33" width="573" height="598"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -967,7 +971,7 @@
                                                                 <rect key="frame" x="1" y="0.0" width="539" height="194"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Oaw-xR-Gez" viewBased="YES" id="rHe-ym-3ai">
+                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Oaw-xR-Gez" viewBased="YES" id="rHe-ym-3ai">
                                                                         <rect key="frame" x="0.0" y="0.0" width="539" height="171"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1089,7 +1093,7 @@
                                                                 <rect key="frame" x="1" y="0.0" width="539" height="194"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gcW-nv-Uh2" viewBased="YES" id="DpW-L8-Lv9">
+                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gcW-nv-Uh2" viewBased="YES" id="DpW-L8-Lv9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="539" height="171"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>

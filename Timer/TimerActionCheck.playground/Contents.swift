@@ -24,3 +24,19 @@ let pURL: String = "%E3%81%A6%E3%81%A3%E3%81%A6%E3%81%A3%E3%81%A6%E3%83%BC%E5%8E
 
 pURL.stringByRemovingPercentEncoding
 
+class Manager {
+    static let sharedManager = Manager()
+    
+    var mynumber: Int = 0
+    private init() {
+    }
+}
+
+let m1 = Manager.sharedManager
+let m2 = Manager.sharedManager
+
+
+m1.mynumber = 100
+print(m2.mynumber)
+
+

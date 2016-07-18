@@ -16,3 +16,20 @@
 
 
 
+## Singleton
+
+- http://dev.classmethod.jp/references/ios8-swift-design-pattern-singleton/
+
+## New Window
+
+- [Open New Window in Swift](http://stackoverflow.com/questions/30921737/open-new-window-in-swift)
+- [OSX Storyboards - Open non-modal window with standard segue](http://stackoverflow.com/questions/24694587/osx-storyboards-open-non-modal-window-with-standard-segue)
+
+## Multi Window
+
+- [Transitioning between view controllers in the same window, with Swift – Mac](http://theiconmaster.com/2015/03/transitioning-between-view-controllers-in-the-same-window-with-swift-mac/)
+
+
+## FullScreen
+
+- [NSWindowを常に最前面に出す](http://qiita.com/ocadaruma/items/790e96245c99e7af42a3)
