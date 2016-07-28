@@ -14,7 +14,32 @@
 - http://qiita.com/uasi/items/ab36e4eb8b9672b0255d
 - http://eien.seesaa.net/article/370227085.html
 
+### 値の設定 / 取得
 
+- NSTableView に値を設定する
+  http://hmdt.jp/cocoaProg/AppKit/NSTableView/NSTableView.html
+- SwiftでOS Xアプリケーションのプログラミング - 表
+  http://www.ne.jp/asahi/room/kuro/programmingTable.html
+
+
+### viewbased / cellbased?
+
+- viewForTableColumn is not run (but objectValueForTableColumn is)
+  http://stackoverflow.com/questions/12551574/viewfortablecolumn-is-not-run-but-objectvaluefortablecolumn-is
+    - objectValueForTableColumn
+    - viewForTableColumn
+
+
+### イベント
+
+- TableViewにNSEventのHandlerを登録する．
+  http://stackoverflow.com/questions/37072182/xcode-swift-osx-select-and-edit-cells-in-viewbased-nstableview
+
+- テーブル内のセルが編集されようとするときに呼び出されます
+  http://cocoaapi.hatenablog.com/entry/00000114/recID35161
+
+- NSTableView に値を設定する
+  http://hmdt.jp/cocoaProg/AppKit/NSTableView/NSTableView.html
 
 ## Singleton
 

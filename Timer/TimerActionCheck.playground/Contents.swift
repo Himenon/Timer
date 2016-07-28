@@ -40,3 +40,13 @@ m1.mynumber = 100
 print(m2.mynumber)
 
 
+let date = NSDate()
+let calendar = NSCalendar.currentCalendar()
+let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+let components = calendar.components(unitFlags, fromDate: date)
+let hour = components.hour
+
+components.minute
+components.second
+
+

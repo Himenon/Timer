@@ -20,6 +20,7 @@ class TimeTable: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+
 }
 
 class Mission: Object {
@@ -32,10 +33,6 @@ class Mission: Object {
     dynamic var lock: Int = 0
     dynamic var visible: Bool = true // 表示 非表示
     dynamic var end_sound: Sound?    // 音源を一つ持つ
-
-    override static func primaryKey() -> String? {
-        return "finish_at"
-    }
 }
 
 class SoundBox: Object {

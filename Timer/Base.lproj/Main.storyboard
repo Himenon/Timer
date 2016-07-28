@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -50,9 +50,9 @@
         <scene sceneID="NiN-9a-aEp">
             <objects>
                 <windowController storyboardIdentifier="TimerWindow" id="NV9-ET-LNF" sceneMemberID="viewController">
-                    <window key="window" title="タイマービュー" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="sW1-b2-cmL">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
+                    <window key="window" title="タイマービュー" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="sW1-b2-cmL">
+                        <windowStyleMask key="styleMask" closable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="-1626" y="312" width="480" height="271"/>
                         <rect key="screenRect" x="-1920" y="0.0" width="1920" height="1057"/>
@@ -128,6 +128,14 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" image="Artboard 1@512-1" id="gWb-Hv-e3k"/>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="elO-XY-a5B">
+                                <rect key="frame" x="547" y="20" width="134" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="現在時刻" id="Nhh-nK-aPD">
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="YZs-Ax-GIm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="2ZO-hc-aPS"/>
@@ -143,6 +151,13 @@
                             <constraint firstAttribute="trailing" secondItem="y7b-gD-ATq" secondAttribute="trailing" constant="20" id="xVl-QI-WrV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="elO-XY-a5B" id="YRF-a3-lvZ"/>
+                        <outlet property="logoImage" destination="qfq-G4-Wxj" id="THq-I6-8Lh"/>
+                        <outlet property="missionLabel" destination="y7b-gD-ATq" id="dQU-Ie-zUi"/>
+                        <outlet property="timerLabel" destination="YZs-Ax-GIm" id="76M-oQ-lIU"/>
+                        <outlet property="titleLabel" destination="App-EQ-a6q" id="bcS-4s-EB2"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,13 +405,13 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="MissionNumberCell" id="b8d-TN-W1j">
+                                                                <tableCellView identifier="MissionNumberCell" id="b8d-TN-W1j" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
                                                                     <rect key="frame" x="1" y="1" width="40" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24q-7k-zFS">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="24q-7k-zFS">
                                                                             <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
-                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="iLY-9I-wub">
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="iLY-9I-wub">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -404,16 +419,18 @@
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
+                                                                        <constraint firstItem="24q-7k-zFS" firstAttribute="top" secondItem="b8d-TN-W1j" secondAttribute="top" id="f2u-53-bvx"/>
                                                                         <constraint firstAttribute="trailing" secondItem="24q-7k-zFS" secondAttribute="trailing" id="fiX-uA-9mI"/>
                                                                         <constraint firstItem="24q-7k-zFS" firstAttribute="leading" secondItem="b8d-TN-W1j" secondAttribute="leading" id="qTF-N1-lp9"/>
                                                                     </constraints>
                                                                     <connections>
+                                                                        <outlet property="order_numner_label" destination="24q-7k-zFS" id="eXc-4D-LsT"/>
                                                                         <outlet property="textField" destination="24q-7k-zFS" id="1zs-RW-Y4U"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn width="102" minWidth="40" maxWidth="1000" id="FSp-mU-jNM">
+                                                        <tableColumn width="114" minWidth="40" maxWidth="1000" id="FSp-mU-jNM">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="ミッション名">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -426,21 +443,28 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="MissionTitleCell" id="pHe-6U-9zK">
-                                                                    <rect key="frame" x="44" y="1" width="102" height="17"/>
+                                                                <tableCellView identifier="MissionTitleCell" id="pHe-6U-9zK" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="44" y="1" width="114" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g16-LR-FB0">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
-                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="IDJ-4W-H0y">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g16-LR-FB0">
+                                                                            <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="IDJ-4W-H0y">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                <connections>
+                                                                                    <binding destination="pHe-6U-9zK" name="editable" keyPath="objectValue" id="KN4-DN-KDc"/>
+                                                                                </connections>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <action selector="takeStringValueFrom:" target="ieh-pE-yv6" id="3am-lJ-NJb"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="g16-LR-FB0" secondAttribute="trailing" id="OvR-7a-qt4"/>
+                                                                        <constraint firstItem="g16-LR-FB0" firstAttribute="top" secondItem="pHe-6U-9zK" secondAttribute="top" id="crs-z6-5QY"/>
                                                                         <constraint firstItem="g16-LR-FB0" firstAttribute="leading" secondItem="pHe-6U-9zK" secondAttribute="leading" id="gXV-eg-v0v"/>
                                                                     </constraints>
                                                                     <connections>
@@ -462,12 +486,12 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="ScheduledFinishTimeCell" id="m08-d7-UqV">
-                                                                    <rect key="frame" x="149" y="1" width="102" height="17"/>
+                                                                <tableCellView identifier="ScheduledFinishTimeCell" id="m08-d7-UqV" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="161" y="1" width="102" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCL-s4-3Ir">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xCL-s4-3Ir">
+                                                                            <rect key="frame" x="-2" y="0.0" width="106" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="JRz-rz-K7Y">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -478,9 +502,11 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="xCL-s4-3Ir" secondAttribute="trailing" id="65S-Uu-baw"/>
                                                                         <constraint firstItem="xCL-s4-3Ir" firstAttribute="leading" secondItem="m08-d7-UqV" secondAttribute="leading" id="PuG-o1-YBL"/>
+                                                                        <constraint firstItem="xCL-s4-3Ir" firstAttribute="top" secondItem="m08-d7-UqV" secondAttribute="top" id="sXR-mx-jMH"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <outlet property="textField" destination="xCL-s4-3Ir" id="zXo-pX-bbX"/>
+                                                                        <outlet property="text_content" destination="xCL-s4-3Ir" id="RAw-2F-6Mp"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
@@ -498,12 +524,12 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="RealFinishTimeCell" id="BpF-n2-kkG">
-                                                                    <rect key="frame" x="254" y="1" width="102" height="17"/>
+                                                                <tableCellView identifier="RealFinishTimeCell" id="BpF-n2-kkG" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="266" y="1" width="102" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opF-xP-nw5">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="opF-xP-nw5">
+                                                                            <rect key="frame" x="-2" y="0.0" width="106" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="M5m-jz-1pD">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -513,9 +539,11 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="opF-xP-nw5" firstAttribute="leading" secondItem="BpF-n2-kkG" secondAttribute="leading" id="HEq-yA-gCs"/>
+                                                                        <constraint firstItem="opF-xP-nw5" firstAttribute="top" secondItem="BpF-n2-kkG" secondAttribute="top" id="QoR-Y8-ujV"/>
                                                                         <constraint firstAttribute="trailing" secondItem="opF-xP-nw5" secondAttribute="trailing" id="pAC-2v-6MW"/>
                                                                     </constraints>
                                                                     <connections>
+                                                                        <outlet property="date_set_field" destination="opF-xP-nw5" id="eg9-Hw-7p5"/>
                                                                         <outlet property="textField" destination="opF-xP-nw5" id="Y4e-Yu-HBe"/>
                                                                     </connections>
                                                                 </tableCellView>
@@ -540,12 +568,12 @@
                                                             </comboBoxCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="TimeReviseCell" id="KPn-Jj-594" customClass="TimeTableCustomCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="359" y="1" width="83" height="17"/>
+                                                                <tableCellView identifier="TimeReviseCell" id="KPn-Jj-594" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="371" y="1" width="83" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <comboBox verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-TR-Kv9">
-                                                                            <rect key="frame" x="0.0" y="-4" width="86" height="26"/>
+                                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-TR-Kv9">
+                                                                            <rect key="frame" x="0.0" y="-7" width="86" height="26"/>
                                                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" title="Revise" drawsBackground="YES" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="cBl-UP-8cQ">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -554,16 +582,17 @@
                                                                         </comboBox>
                                                                     </subviews>
                                                                     <constraints>
+                                                                        <constraint firstItem="zlW-TR-Kv9" firstAttribute="top" secondItem="KPn-Jj-594" secondAttribute="top" id="ClK-Au-kNG"/>
                                                                         <constraint firstItem="zlW-TR-Kv9" firstAttribute="leading" secondItem="KPn-Jj-594" secondAttribute="leading" id="Vi0-Qf-hHQ"/>
                                                                         <constraint firstAttribute="trailing" secondItem="zlW-TR-Kv9" secondAttribute="trailing" id="t3Y-Hw-gcR"/>
                                                                     </constraints>
                                                                     <connections>
-                                                                        <outlet property="cBox" destination="zlW-TR-Kv9" id="CkZ-2c-jj7"/>
+                                                                        <outlet property="reviseComboBox" destination="zlW-TR-Kv9" id="Y8x-DJ-gu1"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="151" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
+                                                        <tableColumn identifier="" width="93" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サウンド設定">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -581,12 +610,12 @@
                                                             </comboBoxCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="SoundSettingCell" id="who-gY-7js" customClass="TimeTableCustomCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="445" y="1" width="151" height="17"/>
+                                                                <tableCellView identifier="SoundSettingCell" id="who-gY-7js" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="457" y="1" width="93" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <comboBox verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-5V-DW1">
-                                                                            <rect key="frame" x="0.0" y="-4" width="154" height="26"/>
+                                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-5V-DW1">
+                                                                            <rect key="frame" x="0.0" y="-7" width="96" height="26"/>
                                                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Sound1" drawsBackground="YES" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="VSX-wk-wyY">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -597,14 +626,19 @@
                                                                     <constraints>
                                                                         <constraint firstItem="8xO-5V-DW1" firstAttribute="leading" secondItem="who-gY-7js" secondAttribute="leading" id="4LV-OH-0a6"/>
                                                                         <constraint firstAttribute="trailing" secondItem="8xO-5V-DW1" secondAttribute="trailing" id="Jfc-fF-Y8W"/>
+                                                                        <constraint firstItem="8xO-5V-DW1" firstAttribute="top" secondItem="who-gY-7js" secondAttribute="top" id="wSc-Ak-zuU"/>
                                                                     </constraints>
                                                                     <connections>
-                                                                        <outlet property="cBox" destination="8xO-5V-DW1" id="kKo-IB-8tD"/>
+                                                                        <outlet property="soundComboBox" destination="8xO-5V-DW1" id="cIf-FE-UPu"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Aw1-f9-27u" id="4bU-oO-Ehb"/>
+                                                        <outlet property="delegate" destination="Aw1-f9-27u" id="lFe-5q-eAU"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -629,7 +663,7 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="シンプルタイマー" identifier="2" id="bSX-wG-7yX">
-                                        <view key="view" id="rxv-Kw-FNs">
+                                        <view key="view" ambiguous="YES" id="rxv-Kw-FNs">
                                             <rect key="frame" x="10" y="33" width="260" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -924,7 +958,7 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="終了時の音楽の設定" identifier="2" id="UWd-UF-Fsr">
-                                        <view key="view" ambiguous="YES" id="CDZ-Ro-8fh">
+                                        <view key="view" id="CDZ-Ro-8fh">
                                             <rect key="frame" x="10" y="33" width="573" height="598"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
