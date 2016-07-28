@@ -392,7 +392,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn identifier="MissionNumber" width="40" minWidth="40" maxWidth="1000" id="oi3-T7-kHM">
+                                                        <tableColumn identifier="MissionNumberColumn" width="40" minWidth="40" maxWidth="1000" id="oi3-T7-kHM">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="順番">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -430,7 +430,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn width="114" minWidth="40" maxWidth="1000" id="FSp-mU-jNM">
+                                                        <tableColumn identifier="MissionTitleColumn" width="114" minWidth="40" maxWidth="1000" id="FSp-mU-jNM">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="ミッション名">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -473,7 +473,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="hGZ-18-kwu">
+                                                        <tableColumn identifier="ScheduledFinishTimeColumn" width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="hGZ-18-kwu">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="終了予定時刻">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -511,7 +511,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="w7k-bu-WLK">
+                                                        <tableColumn identifier="RealFinishTimeColumn" width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="w7k-bu-WLK">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="実際の終了時刻">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -549,7 +549,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="82.5546875" minWidth="10" maxWidth="3.4028234663852886e+38" id="uyR-9d-U6e">
+                                                        <tableColumn identifier="TimeReviseColumn" width="82.5546875" minWidth="10" maxWidth="3.4028234663852886e+38" id="uyR-9d-U6e">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="補正">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -572,27 +572,31 @@
                                                                     <rect key="frame" x="371" y="1" width="83" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-TR-Kv9">
-                                                                            <rect key="frame" x="0.0" y="-7" width="86" height="26"/>
-                                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" title="Revise" drawsBackground="YES" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="cBl-UP-8cQ">
-                                                                                <font key="font" metaFont="system"/>
-                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                            </comboBoxCell>
-                                                                        </comboBox>
+                                                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rai-Qf-Oau">
+                                                                            <rect key="frame" x="3" y="-5" width="76" height="26"/>
+                                                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="RpS-0a-66U">
+                                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="menu"/>
+                                                                                <menu key="menu" id="nAl-1v-3ng">
+                                                                                    <items>
+                                                                                        <menuItem title="Item 1" id="lgL-Qb-t4B"/>
+                                                                                        <menuItem title="Item 2" id="nvc-2w-Gfd"/>
+                                                                                        <menuItem title="Item 3" id="AQe-Gx-YXN"/>
+                                                                                    </items>
+                                                                                    <connections>
+                                                                                        <outlet property="delegate" destination="Aw1-f9-27u" id="4hG-eh-50U"/>
+                                                                                    </connections>
+                                                                                </menu>
+                                                                            </popUpButtonCell>
+                                                                        </popUpButton>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="zlW-TR-Kv9" firstAttribute="top" secondItem="KPn-Jj-594" secondAttribute="top" id="ClK-Au-kNG"/>
-                                                                        <constraint firstItem="zlW-TR-Kv9" firstAttribute="leading" secondItem="KPn-Jj-594" secondAttribute="leading" id="Vi0-Qf-hHQ"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="zlW-TR-Kv9" secondAttribute="trailing" id="t3Y-Hw-gcR"/>
-                                                                    </constraints>
                                                                     <connections>
-                                                                        <outlet property="reviseComboBox" destination="zlW-TR-Kv9" id="Y8x-DJ-gu1"/>
+                                                                        <outlet property="revisePopButton" destination="Rai-Qf-Oau" id="Apx-PF-Lnw"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="93" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
+                                                        <tableColumn identifier="SoundSettingColumn" width="93" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サウンド設定">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -614,22 +618,26 @@
                                                                     <rect key="frame" x="457" y="1" width="93" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-5V-DW1">
-                                                                            <rect key="frame" x="0.0" y="-7" width="96" height="26"/>
-                                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Sound1" drawsBackground="YES" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="VSX-wk-wyY">
-                                                                                <font key="font" metaFont="system"/>
-                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                            </comboBoxCell>
-                                                                        </comboBox>
+                                                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-J0-y2O">
+                                                                            <rect key="frame" x="8" y="-5" width="76" height="26"/>
+                                                                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="agm-Fl-Ri6" id="Lpc-dK-I9Q">
+                                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="menu"/>
+                                                                                <menu key="menu" id="fWR-2c-6xJ">
+                                                                                    <items>
+                                                                                        <menuItem title="Item 1" state="on" id="agm-Fl-Ri6"/>
+                                                                                        <menuItem title="Item 2" id="T88-FD-WQo"/>
+                                                                                        <menuItem title="Item 3" id="fQd-r1-aNk"/>
+                                                                                    </items>
+                                                                                    <connections>
+                                                                                        <outlet property="delegate" destination="Aw1-f9-27u" id="7qH-b9-dGI"/>
+                                                                                    </connections>
+                                                                                </menu>
+                                                                            </popUpButtonCell>
+                                                                        </popUpButton>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="8xO-5V-DW1" firstAttribute="leading" secondItem="who-gY-7js" secondAttribute="leading" id="4LV-OH-0a6"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="8xO-5V-DW1" secondAttribute="trailing" id="Jfc-fF-Y8W"/>
-                                                                        <constraint firstItem="8xO-5V-DW1" firstAttribute="top" secondItem="who-gY-7js" secondAttribute="top" id="wSc-Ak-zuU"/>
-                                                                    </constraints>
                                                                     <connections>
-                                                                        <outlet property="soundComboBox" destination="8xO-5V-DW1" id="cIf-FE-UPu"/>
+                                                                        <outlet property="soundPopButton" destination="4OV-J0-y2O" id="DZN-pl-4lL"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
@@ -1263,6 +1271,20 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEn-tE-tJF">
+                                <rect key="frame" x="497" y="760" width="76" height="26"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="aGO-YU-aIy">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="v41-VT-LHw">
+                                        <items>
+                                            <menuItem title="Item 1" id="mWm-AB-E79"/>
+                                            <menuItem title="Item 2" id="H41-nH-9fL"/>
+                                            <menuItem title="Item 3" id="pN4-lK-4yD"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
