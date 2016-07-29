@@ -40,7 +40,7 @@ class TimerViewManager {
 
 class AppModelManager {
     static let sharedManager = AppModelManager()
-    var currentSelectedRowIndex: Int = 0
+    var currentSelectedRowIndex: Int = -100
     private init() {
         
     }

@@ -137,8 +137,7 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
             if idx == 4 || idx == 5 {
                 if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? TimeTableCell {
                     cell.setValue()
-                    cell.revisePopButton?.target = self
-                    cell.soundPopButton?.target = self
+                    cell.timeTablePopUpButton.target = self
                     return cell
                 }
             }
@@ -168,13 +167,20 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         NSLog("\(#function): 行が選択されました．")
         let selectedTableView: NSTableView = notification.object as! NSTableView
         let appModelManager = AppModelManager.sharedManager
-        
-        if appModelManager.currentSelectedRowIndex != selectedTableView.selectedRow {
+        // 初回以外に有効
+        if (appModelManager.currentSelectedRowIndex != selectedTableView.selectedRow && appModelManager.currentSelectedRowIndex >= 0) {
+            // 前回選択時の行のpopupButtonを無効化する
             timeTableRowSelectedInitalize(selectedTableView, rowNum: appModelManager.currentSelectedRowIndex, enable: false)
+            
             if selectedTableView.selectedRow >= 0 { // カラムのHeaderを選択した時にエラーが出る対策
                 timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enable: true)
                 appModelManager.currentSelectedRowIndex = selectedTableView.selectedRow
             }
+        } else if (appModelManager.currentSelectedRowIndex == -100) {
+            // 初回はcurrentSelectedRowIndexに-100をわざと仕込んでいる．
+            // なぜならば，初回は選択された行がないため，currentSelectedRowIndexを用いて無効化するPopUpButtonが存在しない．
+            timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enable: true)
+            appModelManager.currentSelectedRowIndex = selectedTableView.selectedRow
         }
     }
     
@@ -184,8 +190,7 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         let colNum2:Int = tableView.columnWithIdentifier(colIDs[5])
         for i in [colNum1, colNum2] {
             let cell = tableView.viewAtColumn(i, row: rowNum, makeIfNecessary: false) as? TimeTableCell
-            cell?.revisePopButton?.enabled = enable
-            cell?.soundPopButton?.enabled =  enable
+            cell?.timeTablePopUpButton.enabled = enable
         }
     }
     
@@ -201,48 +206,27 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
             NSLog("設定された値は'\(myValue)'です．")
         }
     }
-    
 }
 
 
 class TimeTableCell: NSTableCellView {
     // セルの設定
-    @IBOutlet var revisePopButton: NSPopUpButton!
-    @IBOutlet var soundPopButton: NSPopUpButton!
-    @IBOutlet var order_numner_label: NSTextField!
-    @IBOutlet var text_content: NSTextField!
-    @IBOutlet var date_set_field: NSTextField!
+    @IBOutlet var timeTablePopUpButton: NSPopUpButton!
     
     func setValue() {
         if textField != nil {
             textField?.editable = true
         }
         
-        if text_content != nil {
-            text_content.editable = true
-        }
-        
-        if revisePopButton != nil {
-            revisePopButton.removeAllItems()
+        if timeTablePopUpButton != nil {
+            timeTablePopUpButton.removeAllItems()
             for i in 1...10 {
                 // Todo: モデルから編集項目の設定
-                revisePopButton.addItemWithTitle("Hello \(i)")
+                timeTablePopUpButton.addItemWithTitle("My List \(i)")
             }
-            revisePopButton.enabled = false
-        }
-        
-        if soundPopButton != nil {
-            // Todo: モデルからサウンドの設定
-            soundPopButton.removeAllItems()
-            for i in 1...10 {
-                // Todo: モデルから編集項目の設定
-                soundPopButton.addItemWithTitle("Sound: \(i)")
-            }
-            soundPopButton.enabled = false
+            timeTablePopUpButton.enabled = false
         }
     }
-    
-    
 }
 
 

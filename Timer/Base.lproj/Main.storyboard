@@ -424,7 +424,6 @@
                                                                         <constraint firstItem="24q-7k-zFS" firstAttribute="leading" secondItem="b8d-TN-W1j" secondAttribute="leading" id="qTF-N1-lp9"/>
                                                                     </constraints>
                                                                     <connections>
-                                                                        <outlet property="order_numner_label" destination="24q-7k-zFS" id="eXc-4D-LsT"/>
                                                                         <outlet property="textField" destination="24q-7k-zFS" id="1zs-RW-Y4U"/>
                                                                     </connections>
                                                                 </tableCellView>
@@ -506,7 +505,6 @@
                                                                     </constraints>
                                                                     <connections>
                                                                         <outlet property="textField" destination="xCL-s4-3Ir" id="zXo-pX-bbX"/>
-                                                                        <outlet property="text_content" destination="xCL-s4-3Ir" id="RAw-2F-6Mp"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
@@ -543,8 +541,7 @@
                                                                         <constraint firstAttribute="trailing" secondItem="opF-xP-nw5" secondAttribute="trailing" id="pAC-2v-6MW"/>
                                                                     </constraints>
                                                                     <connections>
-                                                                        <outlet property="date_set_field" destination="opF-xP-nw5" id="eg9-Hw-7p5"/>
-                                                                        <outlet property="textField" destination="opF-xP-nw5" id="Y4e-Yu-HBe"/>
+                                                                        <outlet property="textField" destination="opF-xP-nw5" id="lwq-hF-h9d"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
@@ -569,7 +566,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="TimeReviseCell" id="KPn-Jj-594" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="371" y="1" width="83" height="17"/>
+                                                                    <rect key="frame" x="371" y="1" width="82.5" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rai-Qf-Oau">
@@ -591,12 +588,12 @@
                                                                         </popUpButton>
                                                                     </subviews>
                                                                     <connections>
-                                                                        <outlet property="revisePopButton" destination="Rai-Qf-Oau" id="Apx-PF-Lnw"/>
+                                                                        <outlet property="timeTablePopUpButton" destination="Rai-Qf-Oau" id="mUu-BT-Czy"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="SoundSettingColumn" width="93" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
+                                                        <tableColumn identifier="SoundSettingColumn" width="101.54296875" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サウンド設定">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -615,7 +612,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="SoundSettingCell" id="who-gY-7js" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="457" y="1" width="93" height="17"/>
+                                                                    <rect key="frame" x="456.5" y="1" width="101.5" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-J0-y2O">
@@ -637,7 +634,7 @@
                                                                         </popUpButton>
                                                                     </subviews>
                                                                     <connections>
-                                                                        <outlet property="soundPopButton" destination="4OV-J0-y2O" id="DZN-pl-4lL"/>
+                                                                        <outlet property="timeTablePopUpButton" destination="4OV-J0-y2O" id="925-2C-lOu"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
@@ -652,7 +649,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="uiG-dM-W8q">
-                                            <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="EW7-AD-szw">
@@ -1090,7 +1087,7 @@
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
                                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="bQv-7Z-Miv">
-                                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                                                <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Vd4-ux-8v5">
@@ -1244,7 +1241,7 @@
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
                                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="EjN-cV-JUH">
-                                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                                                <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ocm-dW-SGm">
@@ -1271,20 +1268,6 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEn-tE-tJF">
-                                <rect key="frame" x="497" y="760" width="76" height="26"/>
-                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="aGO-YU-aIy">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="v41-VT-LHw">
-                                        <items>
-                                            <menuItem title="Item 1" id="mWm-AB-E79"/>
-                                            <menuItem title="Item 2" id="H41-nH-9fL"/>
-                                            <menuItem title="Item 3" id="pN4-lK-4yD"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
