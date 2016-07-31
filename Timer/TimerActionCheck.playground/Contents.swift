@@ -24,6 +24,7 @@ let pURL: String = "%E3%81%A6%E3%81%A3%E3%81%A6%E3%81%A3%E3%81%A6%E3%83%BC%E5%8E
 
 pURL.stringByRemovingPercentEncoding
 
+// Singleton
 class Manager {
     static let sharedManager = Manager()
     
@@ -48,5 +49,56 @@ let hour = components.hour
 
 components.minute
 components.second
+
+// http://qiita.com/k-yamada@github/items/8b6411959579fd6cd995
+class DateUtils {
+    class func dateFromString(string: String, format: String) -> NSDate {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.dateFromString(string)!
+    }
+    
+    class func stringFromDate(date: NSDate, format: String) -> String {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.stringFromDate(date)
+    }
+}
+
+// NSDate -> String
+print("HELLO")
+// String -> NSDate
+let dateString = "2015/03/04 12:34:56 +09:00"
+let date2 = DateUtils.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z")
+print(date2)
+
+// NSDateの計算
+let date_plus = DateUtils.dateFromString("2015/03/04 12:34:56", format: "yyyy/MM/dd HH:mm:ss")
+let date_minu = DateUtils.dateFromString("2015/03/04 10:34:56", format: "yyyy/MM/dd HH:mm:ss")
+
+
+let time_interval = date_plus.timeIntervalSinceDate(date_minu) / 2
+
+NSDate(timeInterval: time_interval, sinceDate: date_minu)
+
+
+var my_array = ["a", "b", "c", "d", "e", "f"]
+my_array.insert("111", atIndex: 3)
+
+// NSMutableArrayの挙動確認
+
+let nsMDict: NSMutableDictionary = ["a": 1, "b": 2]
+
+nsMDict["a"] = 300
+
+nsMDict
+
+let copyDict: NSMutableDictionary = NSMutableDictionary.init(dictionary: nsMDict as [NSObject : AnyObject], copyItems: true)
+copyDict["a"] = 400
+
+copyDict
+nsMDict
+
+
 
 

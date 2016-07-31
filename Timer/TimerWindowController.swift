@@ -9,12 +9,17 @@
 import Cocoa
 import Foundation
 
-class TimerViewManager {
-    static let sharedManager = TimerViewManager()
+class TimeTableManager {
+    static let sharedManager = TimeTableManager()
     var fullScreenFlag: Bool = false
     var currentTime: Int = 0
     var timerWindowOpen: Bool = false
 
+    enum insertFlag: Int {
+        case Before
+        case After
+    }
+    
     private init() {
         
     }
@@ -36,6 +41,32 @@ class TimerViewManager {
         // 残り時間を計算
         return NSDate()
     }
+    
+    func insertDate(currentDate: String, neighborDate: String, format: String, insertPlace: insertFlag) -> String {
+        let currentNSDate: NSDate = TimeTableManager.dateFromString(currentDate, format: format)
+        let neighborNSDate: NSDate = TimeTableManager.dateFromString(neighborDate, format: format)
+        
+        // 隣接時刻との差分を計算
+        let timeInterval = neighborNSDate.timeIntervalSinceDate( currentNSDate ) / 2
+        let insertNSDate = NSDate(timeInterval: timeInterval, sinceDate: currentNSDate)
+        
+        // 中間時刻を返す
+        return TimeTableManager.stringFromDate(insertNSDate, format: format)
+    }
+    
+    
+    class func dateFromString(string: String, format: String) -> NSDate {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.dateFromString(string)!
+    }
+    
+    class func stringFromDate(date: NSDate, format: String) -> String {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.stringFromDate(date)
+    }
+    
 }
 
 class AppModelManager {
@@ -54,7 +85,7 @@ class TimerWindowController: NSViewController {
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var currentTimeLabel: NSTextField!
     
-    var timerViewManager = TimerViewManager.sharedManager
+    var timerViewManager = TimeTableManager.sharedManager
     var mainTimer: NSTimer!
     
     var timerCounter: NSTimeInterval = 0

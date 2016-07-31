@@ -15,7 +15,9 @@ class MainControlPanel: NSViewController {
     @IBOutlet var timerWindow: NSWindow!
     
     var timerVC: NSWindowController?
-    var timerViewManaer = TimerViewManager.sharedManager
+    var timeTableManaer = TimeTableManager.sharedManager
+    let appModelManager = AppModelManager.sharedManager
+    let timeFormat: String = "HH:mm:ss"
     
     let colIDs: [String] = [
         "MissionNumberColumn",
@@ -33,9 +35,18 @@ class MainControlPanel: NSViewController {
         "RealFinishTimeColumn": "RealFinishTimeCell",
         "TimeReviseColumn": "TimeReviseCell",
         "SoundSettingColumn": "SoundSettingCell",
-        ]
+    ]
     
-    let timeTableData: [NSMutableDictionary] = [
+    let timeTableDataInitTemplate: NSMutableDictionary = [
+        "MissionNumberColumn": 1,
+        "MissionTitleColumn": "MissionTitle",
+        "ScheduledFinishTimeColumn": "20:10:12",
+        "RealFinishTimeColumn": "20:20:15",
+        "TimeReviseColumn": "false",
+        "SoundSettingColumn": ""
+    ]
+    
+    var timeTableData: [NSMutableDictionary] = [
         [
             "MissionNumberColumn": 1,
             "MissionTitleColumn": "my title",
@@ -61,40 +72,53 @@ class MainControlPanel: NSViewController {
         timeTable.setDelegate(self)
     }
     
-    func inputEventInitialize() {
-        // イベントの上書きで死ぬ．
-        NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask, handler: {
-            // TableViewにNSEventのHandlerを登録する．
-            // http://stackoverflow.com/questions/37072182/xcode-swift-osx-select-and-edit-cells-in-viewbased-nstableview
-            (event: NSEvent) in
-            self.timeTable.keyDown(event);
-            
-            // print("KeyCode : '\(event.keyCode)' が入力されました．")
-            switch(event.keyCode)
-            {
-            case 36: // Enter Key
-                return nil;
-            default:
-                return event;
-            }
-        })
-    }
-    
     @IBAction func secondWindowFullScreen(sender: AnyObject) {
-        if timerViewManaer.timerWindowOpen == false {
+        if timeTableManaer.timerWindowOpen == false {
             // http://stackoverflow.com/questions/24694587/osx-storyboards-open-non-modal-window-with-standard-segue
             if (timerVC == nil) {
-                timerViewManaer.fullScreenFlag = true
+                timeTableManaer.fullScreenFlag = true
                 let storyboard = NSStoryboard(name: "Main", bundle: nil)
                 timerVC = storyboard.instantiateControllerWithIdentifier("TimerWindow") as? NSWindowController
             }
             if (timerVC != nil) {
-                timerViewManaer.timerWindowOpen = true
+                timeTableManaer.timerWindowOpen = true
                 timerVC?.showWindow(sender)
             }
         }
     }
     
+    @IBAction func missionInsertAction(sender: AnyObject) {
+        // Todo: モデル内にデータを追加
+        // Todo: バリデーション
+        // Todo: senderより，上に追加，か下に追加か判断．
+        
+        
+        let insertData: NSMutableDictionary = NSMutableDictionary.init(dictionary: timeTableDataInitTemplate as [NSObject: AnyObject], copyItems: true)
+        let insertIndex: Int = appModelManager.currentSelectedRowIndex
+        NSLog("行を \(insertIndex) に追加します．")
+        
+        if (insertIndex >= 0 && insertIndex + 1 < timeTableData.count) {
+            // 隣のNSDateを取得
+            // 隣のNSDateとの差分で，前に挿入か，後に挿入歌を決定する．
+            let scheduleKey: String = "ScheduledFinishTimeColumn"
+            let currentDate = timeTableData[insertIndex][scheduleKey] as! String
+            let neighborDate = timeTableData[insertIndex + 1][scheduleKey] as! String // +1 or -1
+            
+            insertData[scheduleKey] = timeTableManaer.insertDate(currentDate, neighborDate: neighborDate, format: timeFormat, insertPlace: .After) as String
+            
+            NSLog("現在の時刻: \(currentDate), 隣接した時刻: \(neighborDate), 計算した(挿入する)時刻: \(insertData[scheduleKey])")
+            timeTableData.insert(insertData, atIndex: insertIndex + 1)
+            timeTable.reloadData()
+        }
+    }
+    
+    @IBAction func missinDeleteAction(sender: AnyObject) {
+        // Todo: 行の削除
+        if timeTableData.count > 0 {
+            timeTableData.removeAtIndex(appModelManager.currentSelectedRowIndex)
+            timeTable.reloadData()
+        }
+    }
     
     @IBAction func exitButton(sender: AnyObject) {
         exit(0)
@@ -126,6 +150,9 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         // TODO: Modelからデータを呼び出す
         var text:String = ""
         var cellIdentifier: String = ""
+        
+        // 行番号を表示
+        timeTableData[row].setValue(String(row + 1), forKey: "MissionNumberColumn")
         
         for (idx, colID) in colIDs.enumerate() {
             if tableColumn == timeTable.tableColumns[idx] {
@@ -166,7 +193,6 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
     func tableViewSelectionDidChange(notification: NSNotification) {
         NSLog("\(#function): 行が選択されました．")
         let selectedTableView: NSTableView = notification.object as! NSTableView
-        let appModelManager = AppModelManager.sharedManager
         // 初回以外に有効
         if (appModelManager.currentSelectedRowIndex != selectedTableView.selectedRow && appModelManager.currentSelectedRowIndex >= 0) {
             // 前回選択時の行のpopupButtonを無効化する
@@ -182,6 +208,7 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
             timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enable: true)
             appModelManager.currentSelectedRowIndex = selectedTableView.selectedRow
         }
+        NSLog("現在選択されている行番号は \(appModelManager.currentSelectedRowIndex) 番です． ")
     }
     
     func timeTableRowSelectedInitalize(tableView: NSTableView, rowNum: Int, enable: Bool) {
@@ -198,7 +225,6 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         print("================================================================================")
         // TextFieldの入力が終了した時に呼び出し
         NSLog("\(#function): TextFieldの入力完了")
-        let appModelManager = AppModelManager.sharedManager
         NSLog("現在選択中のRowの番号は \(appModelManager.currentSelectedRowIndex) です．")
         print(obj)
         print(obj.object)
