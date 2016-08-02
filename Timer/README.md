@@ -1,5 +1,10 @@
 # TimeTableアプリケーション
 
+## Cast
+
+- Fail to make Anyobject to NSString in Swift
+  http://stackoverflow.com/questions/30442987/fail-to-make-anyobject-to-nsstring-in-swift
+
 
 ## NSTableView
 

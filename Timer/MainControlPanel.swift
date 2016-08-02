@@ -15,55 +15,13 @@ class MainControlPanel: NSViewController {
     @IBOutlet var timerWindow: NSWindow!
     
     var timerVC: NSWindowController?
-    var timeTableManaer = TimeTableManager.sharedManager
+    var timeTableManager = TimeTableManager.sharedManager
     let appModelManager = AppModelManager.sharedManager
-    let timeFormat: String = "HH:mm:ss"
     
-    let colIDs: [String] = [
-        "MissionNumberColumn",
-        "MissionTitleColumn",
-        "ScheduledFinishTimeColumn",
-        "RealFinishTimeColumn",
-        "TimeReviseColumn",
-        "SoundSettingColumn"
-    ]
+    let timeTableDataInitTemplate: [TableColumnID: AnyObject] = TimeTableManager.sharedManager.timeTableTemplateData
     
-    let celIDs: NSMutableDictionary  = [
-        "MissionNumberColumn": "MissionNumberCell",
-        "MissionTitleColumn": "MissionTitleCell",
-        "ScheduledFinishTimeColumn": "ScheduledFinishTimeCell",
-        "RealFinishTimeColumn": "RealFinishTimeCell",
-        "TimeReviseColumn": "TimeReviseCell",
-        "SoundSettingColumn": "SoundSettingCell",
-    ]
-    
-    let timeTableDataInitTemplate: NSMutableDictionary = [
-        "MissionNumberColumn": 1,
-        "MissionTitleColumn": "MissionTitle",
-        "ScheduledFinishTimeColumn": "20:10:12",
-        "RealFinishTimeColumn": "20:20:15",
-        "TimeReviseColumn": "false",
-        "SoundSettingColumn": ""
-    ]
-    
-    var timeTableData: [NSMutableDictionary] = [
-        [
-            "MissionNumberColumn": 1,
-            "MissionTitleColumn": "my title",
-            "ScheduledFinishTimeColumn": "20:10:12",
-            "RealFinishTimeColumn": "20:20:15",
-            "TimeReviseColumn": "false",
-            "SoundSettingColumn": ""
-        ],
-        [
-            "MissionNumberColumn": 2,
-            "MissionTitleColumn": "your title",
-            "ScheduledFinishTimeColumn": "20:20:12",
-            "RealFinishTimeColumn": "21:20:15",
-            "TimeReviseColumn": "false",
-            "SoundSettingColumn": ""
-        ]
-    ]
+    // Todo: モデルと同じ型に揃えること．
+    var timeTableData: [[TableColumnID: AnyObject]] = [ TimeTableManager.SampleData().data1, TimeTableManager.SampleData().data2 ]
     
     override func viewDidLoad() {
         // テーブルのデリゲートとデータソースの設定
@@ -73,15 +31,15 @@ class MainControlPanel: NSViewController {
     }
     
     @IBAction func secondWindowFullScreen(sender: AnyObject) {
-        if timeTableManaer.timerWindowOpen == false {
+        if timeTableManager.timerWindowOpen == false {
             // http://stackoverflow.com/questions/24694587/osx-storyboards-open-non-modal-window-with-standard-segue
             if (timerVC == nil) {
-                timeTableManaer.fullScreenFlag = true
+                timeTableManager.fullScreenFlag = true
                 let storyboard = NSStoryboard(name: "Main", bundle: nil)
                 timerVC = storyboard.instantiateControllerWithIdentifier("TimerWindow") as? NSWindowController
             }
             if (timerVC != nil) {
-                timeTableManaer.timerWindowOpen = true
+                timeTableManager.timerWindowOpen = true
                 timerVC?.showWindow(sender)
             }
         }
@@ -92,23 +50,29 @@ class MainControlPanel: NSViewController {
         // Todo: バリデーション
         // Todo: senderより，上に追加，か下に追加か判断．
         
+        var insertData = timeTableManager.timeTableTemplateData
+        // NSMutableDictionary.init(dictionary: timeTableManager.timeTableTemplateData , copyItems: true)
         
-        let insertData: NSMutableDictionary = NSMutableDictionary.init(dictionary: timeTableDataInitTemplate as [NSObject: AnyObject], copyItems: true)
         let insertIndex: Int = appModelManager.currentSelectedRowIndex
         NSLog("行を \(insertIndex) に追加します．")
         
         if (insertIndex >= 0 && insertIndex + 1 < timeTableData.count) {
             // 隣のNSDateを取得
+            NSLog("current Date = \(timeTableData[insertIndex][.ScheduledFinishTimeColumn])")
+            
+            // NSDate
+            let currentDate = String(timeTableData[insertIndex][.ScheduledFinishTimeColumn]!)
+            let neighborDate = String(timeTableData[insertIndex + 1][.ScheduledFinishTimeColumn]!) // +1 or -1
+            
             // 隣のNSDateとの差分で，前に挿入か，後に挿入歌を決定する．
-            let scheduleKey: String = "ScheduledFinishTimeColumn"
-            let currentDate = timeTableData[insertIndex][scheduleKey] as! String
-            let neighborDate = timeTableData[insertIndex + 1][scheduleKey] as! String // +1 or -1
+            let insertDate = timeTableManager.insertDate(currentDate, neighborDate: neighborDate, insertPlace: .After) as String
             
-            insertData[scheduleKey] = timeTableManaer.insertDate(currentDate, neighborDate: neighborDate, format: timeFormat, insertPlace: .After) as String
-            
-            NSLog("現在の時刻: \(currentDate), 隣接した時刻: \(neighborDate), 計算した(挿入する)時刻: \(insertData[scheduleKey])")
-            timeTableData.insert(insertData, atIndex: insertIndex + 1)
-            timeTable.reloadData()
+            if insertDate != "0" {
+                // 差分が0になったら，挿入しない．
+                insertData[.ScheduledFinishTimeColumn] = insertDate
+                timeTableData.insert(insertData, atIndex: insertIndex + 1)
+                timeTable.reloadData()
+            }
         }
     }
     
@@ -148,35 +112,39 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
     // データの取登録
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // TODO: Modelからデータを呼び出す
-        var text:String = ""
-        var cellIdentifier: String = ""
-        
         // 行番号を表示
-        timeTableData[row].setValue(String(row + 1), forKey: "MissionNumberColumn")
+        timeTableData[row][.MissionNumberColumn] = String(row + 1)
         
-        for (idx, colID) in colIDs.enumerate() {
-            if tableColumn == timeTable.tableColumns[idx] {
-                let mymy = timeTableData[row].objectForKey(colID)
-                text = String(mymy!)
-                cellIdentifier = String(celIDs.objectForKey(colID)!)
-            }
+        // 各列のセルに値を設定していく
+        
+        print("現在のTableColumn = \(tableColumn!.identifier)")
+        
+        if let cell = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: nil) as? TimeTableCell {
             
-            if idx == 4 || idx == 5 {
-                if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? TimeTableCell {
-                    cell.setValue()
-                    cell.timeTablePopUpButton.target = self
-                    return cell
-                }
-            }
+            cell.currentRowNumber = row
             
-            if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? TimeTableCell {
-                cell.textField?.stringValue = text
-                cell.textField?.editable = true
+            switch tableColumn!.identifier {
+            case TableColumnID.SoundSettingColumn.rawValue:
+                // cell.setValue() : それぞれの
+                cell.timeTablePopUpButton.target = self
+                cell.timeTablePopUpButton.selectItemWithTitle("Sound 002") // Modelに保存された値をPopUpButtonに設定する
+                cell.setMusicValue()
+            case TableColumnID.TimeReviseColumn.rawValue:
+                // cell.setValue()
+                cell.timeTablePopUpButton.target = self
+                cell.setTimeReviseValue()
+            default:
+                // テキストフィールドのみの場合
+                // StringValueにモデルからのデータを仕込む
+                cell.textField?.stringValue = tableColumn!.identifier
                 cell.textField?.delegate = self
-                return cell
+                cell.setCommonValue()
             }
+            
+            return cell
+        } else {
+            return nil
         }
-        return nil
     }
     
     func menuDidClose(menu: NSMenu) {
@@ -196,38 +164,43 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         // 初回以外に有効
         if (appModelManager.currentSelectedRowIndex != selectedTableView.selectedRow && appModelManager.currentSelectedRowIndex >= 0) {
             // 前回選択時の行のpopupButtonを無効化する
-            timeTableRowSelectedInitalize(selectedTableView, rowNum: appModelManager.currentSelectedRowIndex, enable: false)
+            timeTableRowSelectedInitalize(selectedTableView, rowNum: appModelManager.currentSelectedRowIndex, enableStatus: false)
             
             if selectedTableView.selectedRow >= 0 { // カラムのHeaderを選択した時にエラーが出る対策
-                timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enable: true)
+                timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enableStatus: true)
                 appModelManager.currentSelectedRowIndex = selectedTableView.selectedRow
             }
         } else if (appModelManager.currentSelectedRowIndex == -100) {
             // 初回はcurrentSelectedRowIndexに-100をわざと仕込んでいる．
             // なぜならば，初回は選択された行がないため，currentSelectedRowIndexを用いて無効化するPopUpButtonが存在しない．
-            timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enable: true)
+            timeTableRowSelectedInitalize(selectedTableView, rowNum: selectedTableView.selectedRow, enableStatus: true)
             appModelManager.currentSelectedRowIndex = selectedTableView.selectedRow
         }
         NSLog("現在選択されている行番号は \(appModelManager.currentSelectedRowIndex) 番です． ")
     }
     
-    func timeTableRowSelectedInitalize(tableView: NSTableView, rowNum: Int, enable: Bool) {
+    func timeTableRowSelectedInitalize(tableView: NSTableView, rowNum: Int, enableStatus: Bool) {
         // PopUpMenuのToggle: 選択時のみ有効化
-        let colNum1:Int = tableView.columnWithIdentifier(colIDs[4])
-        let colNum2:Int = tableView.columnWithIdentifier(colIDs[5])
+        let colNum1: Int = tableView.columnWithIdentifier(TableColumnID.SoundSettingColumn.rawValue)
+        let colNum2: Int = tableView.columnWithIdentifier(TableColumnID.TimeReviseColumn.rawValue)
+        
         for i in [colNum1, colNum2] {
             let cell = tableView.viewAtColumn(i, row: rowNum, makeIfNecessary: false) as? TimeTableCell
-            cell?.timeTablePopUpButton.enabled = enable
+            cell?.timeTablePopUpButton.enabled = enableStatus
         }
     }
     
     override func controlTextDidEndEditing(obj: NSNotification) {
         print("================================================================================")
         // TextFieldの入力が終了した時に呼び出し
+        // Todo: モデルの更新
+        // Todo: バリデーション
         NSLog("\(#function): TextFieldの入力完了")
         NSLog("現在選択中のRowの番号は \(appModelManager.currentSelectedRowIndex) です．")
         print(obj)
+        // 現在入力しているTextFieldにidentifierを仕込むことにより，保存する場所が特定できる．
         print(obj.object)
+        print(obj.object?.identifier)
         if let myValue = obj.object?.stringValue {
             NSLog("設定された値は'\(myValue)'です．")
         }
@@ -238,20 +211,31 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
 class TimeTableCell: NSTableCellView {
     // セルの設定
     @IBOutlet var timeTablePopUpButton: NSPopUpButton!
+    let sample_sound_list = ["Sound 001", "Sound 002"]
+    var currentRowNumber: Int = 0
+    var timeTableData: [[TableColumnID: AnyObject]] = []
     
-    func setValue() {
-        if textField != nil {
-            textField?.editable = true
+    func setCommonValue() {
+        textField?.identifier = self.identifier!
+        textField?.editable = true
+        timeTablePopUpButton?.enabled = false
+    }
+    
+    func setScheduledFinishTime() {
+        textField?.stringValue = "" // ここでデータを呼び起こす
+    }
+    
+    func setMusicValue() {
+        timeTablePopUpButton.removeAllItems()
+        for sound_title in sample_sound_list {
+            // Todo: モデルから編集項目の設定
+            timeTablePopUpButton.addItemWithTitle(sound_title)
         }
-        
-        if timeTablePopUpButton != nil {
-            timeTablePopUpButton.removeAllItems()
-            for i in 1...10 {
-                // Todo: モデルから編集項目の設定
-                timeTablePopUpButton.addItemWithTitle("My List \(i)")
-            }
-            timeTablePopUpButton.enabled = false
-        }
+        self.setCommonValue()
+    }
+    
+    func setTimeReviseValue() {
+        self.setCommonValue()
     }
 }
 

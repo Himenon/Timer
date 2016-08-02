@@ -99,6 +99,13 @@ copyDict["a"] = 400
 copyDict
 nsMDict
 
+NSDate()
 
+enum revisionMode: Int {
+    case Fix // Default
+    case Flex
+}
+
+revisionMode.Fix.rawValue
 
 

@@ -37,6 +37,7 @@
 		6547533F1D3073FA00F29389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		654753411D3073FA00F29389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6565982C1D308B520045ED36 /* SetTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
+		65A4C5801D4DFA9E0047AD90 /* NestingPractice.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NestingPractice.playground; sourceTree = "<group>"; };
 		B4C78825772A277839E0839A /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7D8143904C356B43323FEDF /* Pods-Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Timer/Pods-Timer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +110,7 @@
 				6547533C1D3073FA00F29389 /* Assets.xcassets */,
 				6547533E1D3073FA00F29389 /* Main.storyboard */,
 				654753411D3073FA00F29389 /* Info.plist */,
+				65A4C5801D4DFA9E0047AD90 /* NestingPractice.playground */,
 				65370C7C1D3B693900BEC123 /* TimerWindowController.swift */,
 				65370C7E1D3B696F00BEC123 /* MainControlPanel.swift */,
 				6503F3331D3C907500001ABE /* README.md */,

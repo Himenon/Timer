@@ -23,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="Vvw-JO-48Z" kind="modal" id="jNJ-Yk-VGT"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="タイマーを表示" keyEquivalent="o" id="2PO-LL-uJO"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
@@ -284,11 +288,11 @@
             <objects>
                 <viewController id="Aw1-f9-27u" customClass="MainControlPanel" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="7TF-iO-6nB">
-                        <rect key="frame" x="0.0" y="0.0" width="1241" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="706"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJW-Ua-uvb">
-                                <rect key="frame" x="1198" y="757" width="25" height="25"/>
+                                <rect key="frame" x="597" y="663" width="25" height="25"/>
                                 <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xOK-Vv-qsp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -298,7 +302,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ECY-JO-J8I">
-                                <rect key="frame" x="1027" y="753" width="167" height="32"/>
+                                <rect key="frame" x="426" y="659" width="167" height="32"/>
                                 <buttonCell key="cell" type="push" title="フルスクリーン" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U5P-Iv-Wdx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -308,23 +312,15 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xn-tF-7z0">
-                                <rect key="frame" x="619" y="763" width="147" height="17"/>
+                                <rect key="frame" x="18" y="669" width="147" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="タイムテーブル" id="oNj-CZ-tg0">
                                     <font key="font" size="18" name=".HiraKakuInterface-W4"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sfz-mn-y8L">
-                                <rect key="frame" x="18" y="763" width="249" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="タイマーウィンドウの設定" id="4NZ-2r-cJx">
-                                    <font key="font" size="18" name=".HiraKakuInterface-W4"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-KV-4uj">
-                                <rect key="frame" x="860" y="753" width="167" height="32"/>
+                                <rect key="frame" x="259" y="659" width="167" height="32"/>
                                 <buttonCell key="cell" type="push" title="タイマーを表示" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l0A-BD-NHO">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -334,7 +330,7 @@
                                 </connections>
                             </button>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvT-T9-2Aa">
-                                <rect key="frame" x="621" y="201" width="600" height="537"/>
+                                <rect key="frame" x="20" y="107" width="600" height="537"/>
                                 <subviews>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnT-xY-zYT">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="537"/>
@@ -349,7 +345,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn identifier="MissionNumberColumn" width="40" minWidth="40" maxWidth="1000" id="oi3-T7-kHM">
+                                                        <tableColumn identifier="MissionNumberColumn" width="85.04296875" minWidth="40" maxWidth="1000" id="oi3-T7-kHM">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="順番">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -362,12 +358,12 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="MissionNumberCell" id="b8d-TN-W1j" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="1" y="1" width="40" height="17"/>
+                                                                <tableCellView identifier="MissionNumberColumn" id="b8d-TN-W1j" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="1" y="1" width="85" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="24q-7k-zFS">
-                                                                            <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
+                                                                            <rect key="frame" x="-2" y="0.0" width="89" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="iLY-9I-wub">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -399,11 +395,11 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="MissionTitleCell" id="pHe-6U-9zK" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="44" y="1" width="114" height="17"/>
+                                                                <tableCellView identifier="MissionTitleColumn" id="pHe-6U-9zK" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="89" y="1" width="114" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g16-LR-FB0">
+                                                                        <textField identifier="MssionTextField" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g16-LR-FB0">
                                                                             <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="IDJ-4W-H0y">
                                                                                 <font key="font" metaFont="system"/>
@@ -442,8 +438,8 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="ScheduledFinishTimeCell" id="m08-d7-UqV" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="161" y="1" width="102" height="17"/>
+                                                                <tableCellView identifier="ScheduledFinishTimeColumn" id="m08-d7-UqV" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="206" y="1" width="102" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xCL-s4-3Ir">
@@ -479,8 +475,8 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="RealFinishTimeCell" id="BpF-n2-kkG" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="266" y="1" width="102" height="17"/>
+                                                                <tableCellView identifier="RealFinishTimeColumn" id="BpF-n2-kkG" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="311" y="1" width="102" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="opF-xP-nw5">
@@ -522,8 +518,8 @@
                                                             </comboBoxCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="TimeReviseCell" id="KPn-Jj-594" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="371" y="1" width="83" height="17"/>
+                                                                <tableCellView identifier="TimeReviseColumn" id="KPn-Jj-594" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="416" y="1" width="83" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rai-Qf-Oau">
@@ -550,7 +546,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="SoundSettingColumn" width="139.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
+                                                        <tableColumn identifier="SoundSettingColumn" width="94.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サウンド設定">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -568,19 +564,19 @@
                                                             </comboBoxCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView identifier="SoundSettingCell" id="who-gY-7js" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="456.5" y="1" width="140" height="17"/>
+                                                                <tableCellView identifier="SoundSettingColumn" id="who-gY-7js" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
+                                                                    <rect key="frame" x="501.5" y="1" width="95" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-J0-y2O">
                                                                             <rect key="frame" x="8" y="-5" width="76" height="26"/>
-                                                                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="agm-Fl-Ri6" id="Lpc-dK-I9Q">
+                                                                            <popUpButtonCell key="cell" type="push" title="Item 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="T88-FD-WQo" id="Lpc-dK-I9Q">
                                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="menu"/>
                                                                                 <menu key="menu" id="fWR-2c-6xJ">
                                                                                     <items>
-                                                                                        <menuItem title="Item 1" state="on" id="agm-Fl-Ri6"/>
-                                                                                        <menuItem title="Item 2" id="T88-FD-WQo"/>
+                                                                                        <menuItem title="Item 1" id="agm-Fl-Ri6"/>
+                                                                                        <menuItem title="Item 2" state="on" id="T88-FD-WQo"/>
                                                                                         <menuItem title="Item 3" id="fQd-r1-aNk"/>
                                                                                     </items>
                                                                                     <connections>
@@ -606,7 +602,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="uiG-dM-W8q">
-                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="EW7-AD-szw">
@@ -620,48 +616,137 @@
                                     </scrollView>
                                 </subviews>
                             </customView>
-                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-nU-iwj">
-                                <rect key="frame" x="13" y="109" width="593" height="644"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IsW-C1-RHo">
+                                <rect key="frame" x="172" y="46" width="158" height="32"/>
+                                <buttonCell key="cell" type="push" title="削除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zcZ-Av-Osd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="missinDeleteAction:" target="Aw1-f9-27u" id="O1v-oB-8Mh"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-kq-hrq">
+                                <rect key="frame" x="336" y="46" width="158" height="32"/>
+                                <buttonCell key="cell" type="push" title="時系列の反転" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3zU-OQ-9qG">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zh-h3-7f5">
+                                <rect key="frame" x="18" y="82" width="161" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="タイムテーブルコントロール" id="8zm-OF-8iL">
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-Eq-z1U">
+                                <rect key="frame" x="172" y="13" width="322" height="32"/>
+                                <buttonCell key="cell" type="push" title="タイムテーブルに従ってタイマーを開始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xub-ND-oM0">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-j2-tMY">
+                                <rect key="frame" x="14" y="13" width="158" height="32"/>
+                                <buttonCell key="cell" type="push" title="下に挿入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aqv-qp-fNv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="missionInsertAction:" target="Aw1-f9-27u" id="WOf-QE-UiT"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-c0-A7X">
+                                <rect key="frame" x="14" y="46" width="158" height="32"/>
+                                <buttonCell key="cell" type="push" title="上に挿入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eNw-0m-WyH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="missionInsertAction:" target="Aw1-f9-27u" id="QAW-bb-Y8G"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="timeTable" destination="aBG-Pe-amT" id="Nej-7d-5Z8"/>
+                    </connections>
+                </viewController>
+                <customObject id="ieh-pE-yv6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Lbn-zp-Gfk"/>
+            </objects>
+            <point key="canvasLocation" x="72" y="1003"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="YkA-LV-T3z">
+            <objects>
+                <windowController id="Vvw-JO-48Z" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="PMn-5K-LJO">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="163" y="199" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                    </window>
+                    <connections>
+                        <segue destination="CkC-og-2yS" kind="relationship" relationship="window.shadowedContentViewController" id="A7R-fC-15t"/>
+                    </connections>
+                </windowController>
+                <customObject id="BVK-Q7-7Ys" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-415" y="1769"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XVn-JV-SUs">
+            <objects>
+                <viewController id="CkC-og-2yS" sceneMemberID="viewController">
+                    <view key="view" id="FJo-9n-N50">
+                        <rect key="frame" x="0.0" y="0.0" width="619" height="660"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-d8-igJ">
+                                <rect key="frame" x="13" y="10" width="593" height="644"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="シンプルタイマー" identifier="2" id="bSX-wG-7yX">
-                                        <view key="view" ambiguous="YES" id="rxv-Kw-FNs">
+                                    <tabViewItem label="シンプルタイマー" identifier="2" id="z6z-CF-CAS">
+                                        <view key="view" ambiguous="YES" id="3iB-z6-Bro">
                                             <rect key="frame" x="10" y="33" width="260" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FF8-Ra-ZMT">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-0H-3S7">
                                                     <rect key="frame" x="17" y="-23" width="244" height="20"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="シンプルなタイマー" id="pG4-Eq-DXk">
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="シンプルなタイマー" id="rOj-MR-Vdt">
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Z5-zT-ZIP">
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zeb-cH-u6o">
                                                     <rect key="frame" x="16" y="-312" width="143" height="18"/>
-                                                    <buttonCell key="cell" type="radio" title="制限時間から指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Mds-e8-jI5">
+                                                    <buttonCell key="cell" type="radio" title="制限時間から指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uKB-PW-GBT">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="QV6-CS-ozh">
+                                                <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2U2-Bt-Yj0">
                                                     <rect key="frame" x="30" y="-402" width="541" height="78"/>
-                                                    <view key="contentView" id="Kyu-UY-z86">
+                                                    <view key="contentView" id="7Tc-BG-Jzk">
                                                         <rect key="frame" x="1" y="1" width="539" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWI-I5-yFf">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-Pr-pdV">
                                                                 <rect key="frame" x="18" y="23" width="53" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="制限時間" id="TdJ-U8-pPA">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="制限時間" id="c92-TV-Yxm">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-jE-G8j">
+                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOR-54-QoN">
                                                                 <rect key="frame" x="122" y="23" width="264" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mMs-qQ-BOu">
-                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="full" id="kwo-JU-r3e"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="j8h-Bu-rpY">
+                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="full" id="ItT-ph-TrP"/>
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -673,46 +758,46 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <box fixedFrame="YES" title="カウンター表示のフォーマット" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="qzK-fO-a9e">
+                                                <box fixedFrame="YES" title="カウンター表示のフォーマット" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rTP-ku-OeP">
                                                     <rect key="frame" x="30" y="-285" width="542" height="139"/>
-                                                    <view key="contentView" id="3Rn-dF-w9K">
+                                                    <view key="contentView" id="OwN-KE-wYo">
                                                         <rect key="frame" x="1" y="1" width="540" height="126"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYx-fi-bbe">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-UT-gMH">
                                                                 <rect key="frame" x="18" y="65" width="509" height="51"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00時00分00秒" id="8qS-fo-X7q">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00時00分00秒" id="jNV-j7-p1S">
                                                                     <font key="font" metaFont="systemMedium" size="42"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1l-qO-DEy">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25X-sK-XZZ">
                                                                 <rect key="frame" x="18" y="23" width="117" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="表示形式" id="A7d-Le-nXs">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="表示形式" id="6qq-rl-c1e">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-JY-Ee4">
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w1c-tK-v3i">
                                                                 <rect key="frame" x="299" y="18" width="229" height="26"/>
-                                                                <popUpButtonCell key="cell" type="push" title="フォーマットを指定して下さい。" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="1QY-kK-WFc" id="0sY-Ra-7M1">
+                                                                <popUpButtonCell key="cell" type="push" title="フォーマットを指定して下さい。" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="hku-Df-QbY" id="QDf-EF-jdf">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
-                                                                    <menu key="menu" id="bhc-0n-lWo">
+                                                                    <menu key="menu" id="QBr-LF-i11">
                                                                         <items>
-                                                                            <menuItem title="フォーマットを指定して下さい。" state="on" id="1QY-kK-WFc">
+                                                                            <menuItem title="フォーマットを指定して下さい。" state="on" id="hku-Df-QbY">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
-                                                                            <menuItem title="01日12時34分56秒" id="Lj9-K5-a9W"/>
-                                                                            <menuItem title="01:12:34:56" id="dEV-yg-0cQ"/>
-                                                                            <menuItem title="12時34分56秒" id="b9N-sS-FIk"/>
-                                                                            <menuItem title="12:34:56" id="NKk-CS-j8b"/>
-                                                                            <menuItem title="12分34秒" id="4XK-33-RCx">
+                                                                            <menuItem title="01日12時34分56秒" id="9CA-RU-3fp"/>
+                                                                            <menuItem title="01:12:34:56" id="K0D-p7-Adw"/>
+                                                                            <menuItem title="12時34分56秒" id="LNW-jM-Xlf"/>
+                                                                            <menuItem title="12:34:56" id="LgZ-SE-n90"/>
+                                                                            <menuItem title="12分34秒" id="Ss6-rz-HmR">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
-                                                                            <menuItem title="12:34" id="UQb-rP-Bm4"/>
+                                                                            <menuItem title="12:34" id="amK-jS-sCv"/>
                                                                         </items>
                                                                     </menu>
                                                                 </popUpButtonCell>
@@ -723,15 +808,15 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <box fixedFrame="YES" title="現在のミッション" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="75x-mo-TbN">
+                                                <box fixedFrame="YES" title="現在のミッション" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="IlE-p2-KoT">
                                                     <rect key="frame" x="30" y="-130" width="542" height="100"/>
-                                                    <view key="contentView" id="9aO-5Y-wmp">
+                                                    <view key="contentView" id="0Oi-GL-utI">
                                                         <rect key="frame" x="1" y="1" width="540" height="87"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMy-o5-nON">
+                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-jJ-o9M">
                                                                 <rect key="frame" x="20" y="20" width="500" height="47"/>
-                                                                <textFieldCell key="cell" controlSize="mini" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="VNA-2m-psn">
+                                                                <textFieldCell key="cell" controlSize="mini" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6e8-Qm-cFl">
                                                                     <font key="font" metaFont="miniSystem"/>
                                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -743,24 +828,24 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="AeH-Y1-4na">
+                                                <box fixedFrame="YES" title="時刻の設定" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-yY-UTo">
                                                     <rect key="frame" x="28" y="-511" width="541" height="78"/>
-                                                    <view key="contentView" id="4gc-Je-rjL">
+                                                    <view key="contentView" id="Cc1-n2-RQc">
                                                         <rect key="frame" x="1" y="1" width="539" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ybs-ni-VeJ">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-ax-v2i">
                                                                 <rect key="frame" x="18" y="23" width="53" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="終了時刻" id="zBj-CX-BSx">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="終了時刻" id="Q8p-sk-d9l">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woc-me-re5">
+                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bL6-Mi-7KQ">
                                                                 <rect key="frame" x="122" y="23" width="264" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Baf-Wq-gFo">
-                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="full" id="Ugk-YZ-zrP"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kN0-H1-0sv">
+                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="full" id="baJ-8i-q9P"/>
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -772,44 +857,44 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBM-dn-qDA">
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9u-ta-5ro">
                                                     <rect key="frame" x="16" y="-426" width="191" height="18"/>
-                                                    <buttonCell key="cell" type="radio" title="終了時刻から逆算して指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="UHz-ps-ig1">
+                                                    <buttonCell key="cell" type="radio" title="終了時刻から逆算して指定する" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dZ5-pC-pqG">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFz-AR-Uin">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSj-fB-bQ3">
                                                     <rect key="frame" x="265" y="-588" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="リセット" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cnf-cX-Nnk">
+                                                    <buttonCell key="cell" type="push" title="リセット" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="078-Px-756">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKv-uR-gaY">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4M-Yn-V1o">
                                                     <rect key="frame" x="145" y="-588" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="一時停止" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8tT-b5-cMp">
+                                                    <buttonCell key="cell" type="push" title="一時停止" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eUh-I8-lW1">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSM-YE-uS6">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rkj-n8-HNA">
                                                     <rect key="frame" x="25" y="-588" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="開始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OF3-De-ra7">
+                                                    <buttonCell key="cell" type="push" title="開始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D5R-7c-MK8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-1J-vMI">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJh-t9-Q0E">
                                                     <rect key="frame" x="25" y="-555" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="表示の更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TrD-1o-oHw">
+                                                    <buttonCell key="cell" type="push" title="表示の更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="go1-7c-WKd">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGN-1b-yfx">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqw-ef-gcp">
                                                     <rect key="frame" x="385" y="-588" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="強制終了" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MEC-Ls-v5v">
+                                                    <buttonCell key="cell" type="push" title="強制終了" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSX-4d-pEN">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
@@ -817,14 +902,14 @@
                                             </subviews>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="タイムテーブルの表示設定" identifier="1" id="rak-jV-bYX">
-                                        <view key="view" id="xfk-i8-CJf">
+                                    <tabViewItem label="タイムテーブルの表示設定" identifier="1" id="tyO-8P-trC">
+                                        <view key="view" id="MaS-lI-Mcb">
                                             <rect key="frame" x="10" y="33" width="573" height="598"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <box fixedFrame="YES" title="プレビュー" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="dE6-Ti-c7P">
+                                                <box fixedFrame="YES" title="プレビュー" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="8AS-hr-4Ax">
                                                     <rect key="frame" x="600" y="440" width="177" height="114"/>
-                                                    <view key="contentView" id="aw7-fJ-QPN">
+                                                    <view key="contentView" id="CHP-Lg-vR1">
                                                         <rect key="frame" x="1" y="1" width="175" height="101"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
@@ -832,46 +917,46 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <box fixedFrame="YES" title="カウンター表示のフォーマット" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="i9G-8m-0P9">
+                                                <box fixedFrame="YES" title="カウンター表示のフォーマット" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-Ec-3Eo">
                                                     <rect key="frame" x="19" y="332" width="542" height="139"/>
-                                                    <view key="contentView" id="VGc-PD-qQI">
+                                                    <view key="contentView" id="X33-xR-Ttd">
                                                         <rect key="frame" x="1" y="1" width="540" height="126"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btC-X3-360">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z95-1C-8Pl">
                                                                 <rect key="frame" x="18" y="65" width="509" height="51"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00時00分00秒" id="VVv-gN-Zyk">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00時00分00秒" id="tZ4-id-XFV">
                                                                     <font key="font" metaFont="systemBold" size="42"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iw3-LJ-edq">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwd-lg-zTl">
                                                                 <rect key="frame" x="18" y="23" width="117" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="表示形式" id="7Wj-Fa-Koo">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="表示形式" id="dhA-aj-S0V">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-hY-fHX">
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDN-Ug-a0Z">
                                                                 <rect key="frame" x="299" y="18" width="229" height="26"/>
-                                                                <popUpButtonCell key="cell" type="push" title="フォーマットを指定して下さい。" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="UMw-e2-s9T" id="XZG-Ld-5Mi">
+                                                                <popUpButtonCell key="cell" type="push" title="フォーマットを指定して下さい。" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="V97-nC-U5h" id="Kh4-ST-Egy">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
-                                                                    <menu key="menu" id="pWF-An-u4a">
+                                                                    <menu key="menu" id="FGu-of-t0P">
                                                                         <items>
-                                                                            <menuItem title="フォーマットを指定して下さい。" state="on" id="UMw-e2-s9T">
+                                                                            <menuItem title="フォーマットを指定して下さい。" state="on" id="V97-nC-U5h">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
-                                                                            <menuItem title="01日12時34分56秒" id="CI3-w6-KgZ"/>
-                                                                            <menuItem title="01:12:34:56" id="Nxj-Dw-OWo"/>
-                                                                            <menuItem title="12時34分56秒" id="R4M-KP-PIC"/>
-                                                                            <menuItem title="12:34:56" id="ENe-Mj-4dG"/>
-                                                                            <menuItem title="12分34秒" id="hvK-rm-chC">
+                                                                            <menuItem title="01日12時34分56秒" id="JvI-K4-lbk"/>
+                                                                            <menuItem title="01:12:34:56" id="fkU-dZ-fFg"/>
+                                                                            <menuItem title="12時34分56秒" id="GOl-Ah-Mzr"/>
+                                                                            <menuItem title="12:34:56" id="sKK-73-TwO"/>
+                                                                            <menuItem title="12分34秒" id="U9N-Hl-qOV">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
-                                                                            <menuItem title="12:34" id="TO4-EL-tte"/>
+                                                                            <menuItem title="12:34" id="80w-vV-bfg"/>
                                                                         </items>
                                                                     </menu>
                                                                 </popUpButtonCell>
@@ -882,15 +967,15 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <box fixedFrame="YES" title="現在のミッション" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-Qh-p2L">
+                                                <box fixedFrame="YES" title="現在のミッション" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="cwI-rs-SXa">
                                                     <rect key="frame" x="19" y="487" width="542" height="100"/>
-                                                    <view key="contentView" id="NZR-1G-fHS">
+                                                    <view key="contentView" id="0Zj-Ca-Ub0">
                                                         <rect key="frame" x="1" y="1" width="540" height="87"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95I-83-OPt">
+                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-b6-mJW">
                                                                 <rect key="frame" x="18" y="11" width="504" height="56"/>
-                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="現在のミッション" id="O7V-WG-H7y">
+                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="現在のミッション" id="7Zo-ya-exj">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -902,16 +987,16 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fd-P4-cAR">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVi-2j-Jvf">
                                                     <rect key="frame" x="16" y="280" width="158" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="セット" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pY7-Le-00c">
+                                                    <buttonCell key="cell" type="push" title="セット" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aas-2C-ans">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HlQ-9I-kdo">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPL-Wk-aqg">
                                                     <rect key="frame" x="174" y="280" width="158" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="クリア" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Erv-12-qOm">
+                                                    <buttonCell key="cell" type="push" title="クリア" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6qM-x2-3Km">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     </buttonCell>
@@ -919,20 +1004,20 @@
                                             </subviews>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="終了時の音楽の設定" identifier="2" id="UWd-UF-Fsr">
-                                        <view key="view" id="CDZ-Ro-8fh">
+                                    <tabViewItem label="終了時の音楽の設定" identifier="2" id="TEw-np-90V">
+                                        <view key="view" id="hhA-li-wXh">
                                             <rect key="frame" x="10" y="33" width="573" height="598"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <box fixedFrame="YES" title="説明" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="N0x-u4-BlH">
+                                                <box fixedFrame="YES" title="説明" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="lYC-jI-Ucn">
                                                     <rect key="frame" x="12" y="4" width="547" height="77"/>
-                                                    <view key="contentView" id="rrP-iu-meZ">
+                                                    <view key="contentView" id="P1K-jj-jsI">
                                                         <rect key="frame" x="1" y="1" width="545" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXp-rj-sds">
+                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJX-Gx-AQL">
                                                                 <rect key="frame" x="18" y="18" width="509" height="26"/>
-                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="終了時の音楽が設定できます。" id="KtT-EV-Lbs">
+                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="終了時の音楽が設定できます。" id="BXO-3b-hK6">
                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -944,56 +1029,56 @@
                                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <font key="titleFont" size="11" name=".HiraKakuInterface-W3"/>
                                                 </box>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKs-Lg-KsV">
+                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlj-sb-pUJ">
                                                     <rect key="frame" x="17" y="340" width="541" height="248"/>
                                                     <subviews>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thK-3g-5Nc">
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLe-K4-Sxu">
                                                             <rect key="frame" x="467" y="-1" width="36" height="24"/>
-                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hlm-2f-xXm">
+                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wPb-Jr-QPo">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                         </button>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yxe-Bu-hWa">
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2c-2L-BFP">
                                                             <rect key="frame" x="505" y="-1" width="36" height="24"/>
-                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4a1-Vp-0nM">
+                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hLS-eo-uXv">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                         </button>
-                                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esm-RK-Wst">
+                                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-aw-DeM">
                                                             <rect key="frame" x="0.0" y="33" width="541" height="195"/>
-                                                            <clipView key="contentView" ambiguous="YES" id="f2g-Pq-KBq">
+                                                            <clipView key="contentView" ambiguous="YES" id="iOw-hE-TQX">
                                                                 <rect key="frame" x="1" y="0.0" width="539" height="194"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Oaw-xR-Gez" viewBased="YES" id="rHe-ym-3ai">
+                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="kU2-ne-clU" viewBased="YES" id="tJo-GO-cwC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="539" height="171"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                         <tableColumns>
-                                                                            <tableColumn width="116" minWidth="40" maxWidth="1000" id="jG6-Oz-RxI">
+                                                                            <tableColumn width="116" minWidth="40" maxWidth="1000" id="JmE-AM-NkN">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="タイトル">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Eoy-i0-LuU">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="8RV-kL-vkC">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
-                                                                                    <tableCellView id="b9P-lJ-KHV">
+                                                                                    <tableCellView id="9xU-iF-1nZ">
                                                                                         <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brw-qg-JSr">
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-4g-LM5">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="タイトル" id="R9R-eZ-5gr">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="タイトル" id="pyg-pV-T83">
                                                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1001,31 +1086,31 @@
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
-                                                                                            <outlet property="textField" destination="brw-qg-JSr" id="Ltf-gE-9MZ"/>
+                                                                                            <outlet property="textField" destination="lkZ-4g-LM5" id="PZT-aM-9sm"/>
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
                                                                             </tableColumn>
-                                                                            <tableColumn width="417" minWidth="40" maxWidth="1000" id="PUH-xh-Msb">
+                                                                            <tableColumn width="417" minWidth="40" maxWidth="1000" id="AKn-Fd-ajg">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="説明">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="cIF-fI-ORA">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="FW4-j6-SdO">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
-                                                                                    <tableCellView id="pEK-RB-L7q">
+                                                                                    <tableCellView id="kRz-zZ-4Ri">
                                                                                         <rect key="frame" x="120" y="1" width="417" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gK-bD-38U">
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntq-Pk-V2u">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="説明している" id="Z8q-P1-pl3">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="説明している" id="SeB-0j-XxO">
                                                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1033,7 +1118,7 @@
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
-                                                                                            <outlet property="textField" destination="8gK-bD-38U" id="PhQ-aO-w0H"/>
+                                                                                            <outlet property="textField" destination="ntq-Pk-V2u" id="VjF-je-T1F"/>
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
@@ -1043,22 +1128,22 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="bQv-7Z-Miv">
-                                                                <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="LSa-7I-z2u">
+                                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Vd4-ux-8v5">
+                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="O5h-26-ag0">
                                                                 <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <tableHeaderView key="headerView" id="Oaw-xR-Gez">
+                                                            <tableHeaderView key="headerView" id="kU2-ne-clU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="539" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-G6-dWR">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-Z9-sps">
                                                             <rect key="frame" x="-2" y="231" width="89" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="サウンドリスト" id="fF2-f8-KCN">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="サウンドリスト" id="q1H-Ac-zsA">
                                                                 <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1066,88 +1151,88 @@
                                                         </textField>
                                                     </subviews>
                                                 </customView>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-cs-6jY">
+                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URE-At-3fb">
                                                     <rect key="frame" x="17" y="89" width="541" height="248"/>
                                                     <subviews>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-fb-xmN">
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nB1-PB-RWA">
                                                             <rect key="frame" x="467" y="-1" width="36" height="24"/>
-                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Qd-1g-kTu">
+                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SzG-zl-6do">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                         </button>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLj-w8-sNr">
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D14-1V-KJp">
                                                             <rect key="frame" x="505" y="-1" width="36" height="24"/>
-                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ldW-lH-j4s">
+                                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Isl-S6-jhe">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                         </button>
-                                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mik-SN-BuT">
+                                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpp-fH-eHB">
                                                             <rect key="frame" x="0.0" y="33" width="541" height="195"/>
-                                                            <clipView key="contentView" ambiguous="YES" id="zb8-7V-sqm">
+                                                            <clipView key="contentView" ambiguous="YES" id="pzn-Uj-tLK">
                                                                 <rect key="frame" x="1" y="0.0" width="539" height="194"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gcW-nv-Uh2" viewBased="YES" id="DpW-L8-Lv9">
+                                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="oxF-Bi-E4B" viewBased="YES" id="bwf-NJ-Fe9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="539" height="171"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                         <tableColumns>
-                                                                            <tableColumn width="116" minWidth="40" maxWidth="1000" id="zOe-3l-NMX">
+                                                                            <tableColumn width="116" minWidth="40" maxWidth="1000" id="oRf-Mz-lhF">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="使用する">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="H95-2v-bRc">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="1Oz-Es-xLR">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
-                                                                                    <tableCellView id="Ftc-dJ-fBP">
+                                                                                    <tableCellView id="pVA-ik-Zb1">
                                                                                         <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAY-A5-knX">
+                                                                                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz8-0j-RRM">
                                                                                                 <rect key="frame" x="8" y="-1" width="22" height="18"/>
-                                                                                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NHN-kg-lIP">
+                                                                                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NH0-hm-lOQ">
                                                                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                 </buttonCell>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </tableCellView>
-                                                                                    <tableCellView id="Y61-nV-yag">
+                                                                                    <tableCellView id="v1e-0n-93b">
                                                                                         <rect key="frame" x="1" y="20" width="116" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
                                                                             </tableColumn>
-                                                                            <tableColumn width="92" minWidth="40" maxWidth="1000" id="4y4-PP-FKm">
+                                                                            <tableColumn width="92" minWidth="40" maxWidth="1000" id="KF2-63-uN5">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="何秒前に流すか">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="L2d-xz-r9H">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="hc8-ko-I0f">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
-                                                                                    <tableCellView id="m0o-1a-SdF">
+                                                                                    <tableCellView id="WBB-qA-Bte">
                                                                                         <rect key="frame" x="120" y="1" width="92" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tea-PL-LtK">
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6PT-AO-PwF">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="17"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5:00" id="nhf-6C-IgC">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5:00" id="X2F-S9-9XR">
                                                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1155,31 +1240,31 @@
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
-                                                                                            <outlet property="textField" destination="tea-PL-LtK" id="3L0-gg-2sA"/>
+                                                                                            <outlet property="textField" destination="6PT-AO-PwF" id="gaa-XM-Tpq"/>
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
                                                                             </tableColumn>
-                                                                            <tableColumn width="322" minWidth="40" maxWidth="1000" id="pXI-3N-Ia3">
+                                                                            <tableColumn width="322" minWidth="40" maxWidth="1000" id="tNS-xh-dnf">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="コントロールパネル">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="i1V-Uj-Pfn">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="4dQ-Jt-mk8">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
-                                                                                    <tableCellView id="uAf-SH-dm2">
+                                                                                    <tableCellView id="C3A-5N-w5T">
                                                                                         <rect key="frame" x="215" y="1" width="322" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr8-BW-pJr">
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2S-Wd-8Ye">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="17"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5:00" id="n1o-Bi-S3e">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5:00" id="6c2-tY-oU7">
                                                                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1187,7 +1272,7 @@
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
-                                                                                            <outlet property="textField" destination="Sr8-BW-pJr" id="D4C-Vp-cO1"/>
+                                                                                            <outlet property="textField" destination="U2S-Wd-8Ye" id="QEs-KX-6xR"/>
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
@@ -1197,22 +1282,22 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="EjN-cV-JUH">
-                                                                <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1Z1-IU-owT">
+                                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ocm-dW-SGm">
+                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="dnQ-Zf-9VS">
                                                                 <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <tableHeaderView key="headerView" id="gcW-nv-Uh2">
+                                                            <tableHeaderView key="headerView" id="oxF-Bi-E4B">
                                                                 <rect key="frame" x="0.0" y="0.0" width="539" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ci2-qb-gKZ">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kWW-8O-Hah">
                                                             <rect key="frame" x="-2" y="231" width="173" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="終了時間の前に流す音楽の指定" id="Bfu-Pv-vBE">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="終了時間の前に流す音楽の指定" id="D8F-rY-rYW">
                                                                 <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1225,68 +1310,12 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IsW-C1-RHo">
-                                <rect key="frame" x="773" y="140" width="158" height="32"/>
-                                <buttonCell key="cell" type="push" title="削除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zcZ-Av-Osd">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="missinDeleteAction:" target="Aw1-f9-27u" id="O1v-oB-8Mh"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-kq-hrq">
-                                <rect key="frame" x="937" y="140" width="158" height="32"/>
-                                <buttonCell key="cell" type="push" title="時系列の反転" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3zU-OQ-9qG">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-c0-A7X">
-                                <rect key="frame" x="615" y="140" width="158" height="32"/>
-                                <buttonCell key="cell" type="push" title="上に挿入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eNw-0m-WyH">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="missionInsertAction:" target="Aw1-f9-27u" id="QAW-bb-Y8G"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zh-h3-7f5">
-                                <rect key="frame" x="619" y="176" width="161" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="タイムテーブルコントロール" id="8zm-OF-8iL">
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-Eq-z1U">
-                                <rect key="frame" x="773" y="107" width="322" height="32"/>
-                                <buttonCell key="cell" type="push" title="タイムテーブルに従ってタイマーを開始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xub-ND-oM0">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-j2-tMY">
-                                <rect key="frame" x="615" y="107" width="158" height="32"/>
-                                <buttonCell key="cell" type="push" title="下に挿入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aqv-qp-fNv">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="missionInsertAction:" target="Aw1-f9-27u" id="WOf-QE-UiT"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
-                    <connections>
-                        <outlet property="timeTable" destination="aBG-Pe-amT" id="Nej-7d-5Z8"/>
-                    </connections>
                 </viewController>
-                <customObject id="ieh-pE-yv6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Lbn-zp-Gfk"/>
+                <customObject id="YLm-Sv-XnC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67.5" y="1099"/>
+            <point key="canvasLocation" x="311.5" y="1909"/>
         </scene>
     </scenes>
     <resources>
