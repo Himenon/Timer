@@ -546,7 +546,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="SoundSettingColumn" width="94.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
+                                                        <tableColumn identifier="SoundSettingColumn" width="93.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aPX-fF-afj">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サウンド設定">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -565,7 +565,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="SoundSettingColumn" id="who-gY-7js" customClass="TimeTableCell" customModule="Timer" customModuleProvider="target">
-                                                                    <rect key="frame" x="501.5" y="1" width="95" height="17"/>
+                                                                    <rect key="frame" x="502" y="1" width="94" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-J0-y2O">

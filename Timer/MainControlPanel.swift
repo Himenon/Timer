@@ -114,33 +114,34 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
         // TODO: Modelからデータを呼び出す
         // 行番号を表示
         timeTableData[row][.MissionNumberColumn] = String(row + 1)
-        
         // 各列のセルに値を設定していく
-        
-        print("現在のTableColumn = \(tableColumn!.identifier)")
         
         if let cell = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: nil) as? TimeTableCell {
             
             cell.currentRowNumber = row
+            cell.currentRowTableData = timeTableData[row] // セルにデータを渡す
             
             switch tableColumn!.identifier {
+            case TableColumnID.MissionTitleColumn.rawValue:
+                cell.setMissionTitle()
+            case TableColumnID.MissionNumberColumn.rawValue:
+                cell.setMissionNumber()
+            case TableColumnID.RealFinishTimeColumn.rawValue:
+                cell.setRealFinishTime()
+            case TableColumnID.ScheduledFinishTimeColumn.rawValue:
+                cell.setScheduledFinishTime()
             case TableColumnID.SoundSettingColumn.rawValue:
-                // cell.setValue() : それぞれの
                 cell.timeTablePopUpButton.target = self
-                cell.timeTablePopUpButton.selectItemWithTitle("Sound 002") // Modelに保存された値をPopUpButtonに設定する
                 cell.setMusicValue()
             case TableColumnID.TimeReviseColumn.rawValue:
-                // cell.setValue()
                 cell.timeTablePopUpButton.target = self
                 cell.setTimeReviseValue()
             default:
-                // テキストフィールドのみの場合
-                // StringValueにモデルからのデータを仕込む
-                cell.textField?.stringValue = tableColumn!.identifier
-                cell.textField?.delegate = self
-                cell.setCommonValue()
+                cell.textField?.stringValue = "データの呼び出しに失敗"
             }
             
+            cell.textField?.delegate = self
+
             return cell
         } else {
             return nil
@@ -208,36 +209,7 @@ extension MainControlPanel: NSTableViewDelegate, NSTextFieldDelegate, NSMenuDele
 }
 
 
-class TimeTableCell: NSTableCellView {
-    // セルの設定
-    @IBOutlet var timeTablePopUpButton: NSPopUpButton!
-    let sample_sound_list = ["Sound 001", "Sound 002"]
-    var currentRowNumber: Int = 0
-    var timeTableData: [[TableColumnID: AnyObject]] = []
-    
-    func setCommonValue() {
-        textField?.identifier = self.identifier!
-        textField?.editable = true
-        timeTablePopUpButton?.enabled = false
-    }
-    
-    func setScheduledFinishTime() {
-        textField?.stringValue = "" // ここでデータを呼び起こす
-    }
-    
-    func setMusicValue() {
-        timeTablePopUpButton.removeAllItems()
-        for sound_title in sample_sound_list {
-            // Todo: モデルから編集項目の設定
-            timeTablePopUpButton.addItemWithTitle(sound_title)
-        }
-        self.setCommonValue()
-    }
-    
-    func setTimeReviseValue() {
-        self.setCommonValue()
-    }
-}
+
 
 
 
